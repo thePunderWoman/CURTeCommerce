@@ -11,13 +11,6 @@ $(function () {
         $('.password').parent().find('span').remove();
         $('.password').removeClass('err');
 
-        if (p.length === 0) {
-            e.preventDefault();
-            var warning = $('.password').attr('title');
-            $('.password').after('<span>' + warning + '</span>');
-            $('.password').addClass('err').focus();
-        }
-
         if (u.length === 0) {
             e.preventDefault();
             var warning = $('.username').attr('title');
