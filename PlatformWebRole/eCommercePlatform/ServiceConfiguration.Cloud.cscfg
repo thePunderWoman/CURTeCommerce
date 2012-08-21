@@ -3,14 +3,14 @@
   <Role name="PlatformWebRole">
     <Instances count="3" />
     <ConfigurationSettings>
-      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=hitchdepotusa;AccountKey=iIWnDyLlpUpufLtCBp6AnaRvPbe1y5v1EvXwZKku/TqtVUcEmFt4ayKmFpJCgeDBDDA9oiscz46d4+PrFjZd8g==" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=dhitch;AccountKey=+spsWfONQJ6ozleogCTt2Pac4hP7xl3x3gvMYrwXH8GozDZ9cFfm89QUWcuFA+hsJ3KgfxtGoRQrDOYVXWjS4g==" />
       <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="hitchdepotusa" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="dhitch" />
       <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCECNGwBnteQaDR6BRpoeqE+gwDQYJKoZIhvcNAQEBBQAEggEAqBb/8OvcYDRhbUrLUmpwT0PXTFzcLIEJ3WHtPwSTC8gkuXxq884J/mOuK06wqmJKtCDkOneLTxxZf+uQU4smaWhS5G9xC3E5DiWrILTIVuHL+KT9bS87gkFVbRtFzv3mRqqEdlEMEKf/gy7iSS/S5qSZiEVF1wuZEZNaIO4+LKHTjq5YEjpN1L/Wut4fSStC6B07o5uoHCYEm6zxmUqn5PwMUBYtFQjsFNZNTD+eS/bYOFTtlwn3zB6uVPwfhqaBNxC/CJ5u5K9cAFywRnEfSiykMHsXZF9nNVLfE6UW1cmiiFqc4l6oh3QHqyj6g82YBdAliIEBcoj7YqBu3wm0sjAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECOr/j+/+OA31gBD4AtPOeVWuaFxvWg+N+v4K" />
       <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2013-04-19T23:59:59.0000000-05:00" />
       <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
-      <Setting name="AccountKey" value="iIWnDyLlpUpufLtCBp6AnaRvPbe1y5v1EvXwZKku/TqtVUcEmFt4ayKmFpJCgeDBDDA9oiscz46d4+PrFjZd8g==" />
-      <Setting name="AccountName" value="hitchdepotusa" />
+      <Setting name="AccountKey" value="+spsWfONQJ6ozleogCTt2Pac4hP7xl3x3gvMYrwXH8GozDZ9cFfm89QUWcuFA+hsJ3KgfxtGoRQrDOYVXWjS4g==" />
+      <Setting name="AccountName" value="dhitch" />
       <Setting name="ProviderName" value="AzureBlobStorageProvider" />
       <Setting name="Mode" value="Live" />
       <Setting name="BaseUri" value="" />
@@ -29,8 +29,8 @@
       <!-- Configure your diagnostic store -->
       <!-- <Setting name="DiagnosticsConnectionString" value="DefaultEndpointsProtocol=tcp;AccountName=hitchdepotusa;AccountKey=iIWnDyLlpUpufLtCBp6AnaRvPbe1y5v1EvXwZKku/TqtVUcEmFt4ayKmFpJCgeDBDDA9oiscz46d4+PrFjZd8g==" /> -->
       <!-- Change these to point to your development or live storage -->
-      <Setting name="AccountKey" value="iIWnDyLlpUpufLtCBp6AnaRvPbe1y5v1EvXwZKku/TqtVUcEmFt4ayKmFpJCgeDBDDA9oiscz46d4+PrFjZd8g==" />
-      <Setting name="AccountName" value="hitchdepotusa" />
+      <Setting name="AccountKey" value="+spsWfONQJ6ozleogCTt2Pac4hP7xl3x3gvMYrwXH8GozDZ9cFfm89QUWcuFA+hsJ3KgfxtGoRQrDOYVXWjS4g==" />
+      <Setting name="AccountName" value="dhitch" />
       <Setting name="Mode" value="Live" />
       <!-- You must change this to "Live" if you don't want to use development storage -->
       <!-- No need to edit these unless specifically required (reserved for future use) -->
@@ -44,9 +44,9 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="ProviderName" value="AzureBlobStorageProvider" />
-      <Setting name="AccountKey" value="iIWnDyLlpUpufLtCBp6AnaRvPbe1y5v1EvXwZKku/TqtVUcEmFt4ayKmFpJCgeDBDDA9oiscz46d4+PrFjZd8g==" />
-      <Setting name="AccountName" value="hitchdepotusa" />
-      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=hitchdepotusa;AccountKey=iIWnDyLlpUpufLtCBp6AnaRvPbe1y5v1EvXwZKku/TqtVUcEmFt4ayKmFpJCgeDBDDA9oiscz46d4+PrFjZd8g==" />
+      <Setting name="AccountKey" value="+spsWfONQJ6ozleogCTt2Pac4hP7xl3x3gvMYrwXH8GozDZ9cFfm89QUWcuFA+hsJ3KgfxtGoRQrDOYVXWjS4g==" />
+      <Setting name="AccountName" value="dhitch" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=dhitch;AccountKey=+spsWfONQJ6ozleogCTt2Pac4hP7xl3x3gvMYrwXH8GozDZ9cFfm89QUWcuFA+hsJ3KgfxtGoRQrDOYVXWjS4g==" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

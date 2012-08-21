@@ -3,7 +3,7 @@
   <Role name="Admin">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=hitchdepotusa;AccountKey=iIWnDyLlpUpufLtCBp6AnaRvPbe1y5v1EvXwZKku/TqtVUcEmFt4ayKmFpJCgeDBDDA9oiscz46d4+PrFjZd8g==" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=dhitch;AccountKey=+spsWfONQJ6ozleogCTt2Pac4hP7xl3x3gvMYrwXH8GozDZ9cFfm89QUWcuFA+hsJ3KgfxtGoRQrDOYVXWjS4g==" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>
