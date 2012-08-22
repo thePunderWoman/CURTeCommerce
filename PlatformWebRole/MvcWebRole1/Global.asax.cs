@@ -34,6 +34,11 @@ namespace MvcWebRole1 {
                 "Lookup/{year}/{make}/{model}/{style}",
                 new { controller = "Lookup", action = "Index", year = "", make = "", model = "", style = "" });
 
+            routes.MapRoute(
+                "CategoryById",
+                "Category/{catID}/{*cat}",
+                new { controller = "Categories", action = "Index", catID = "", cat = "" }
+            );
 
             routes.MapRoute(
                 "Category",

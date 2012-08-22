@@ -81,7 +81,6 @@
                 <a href="/" id="scroll_logo" title="@ViewBag.settings.Get("SiteName")">
                     <img src="@ViewBag.settings.Get("HeaderLogoScroll")" alt="@ViewBag.settings.Get("SiteName")" />
                 </a>
-                <span class="phone">Call Us: <span>@ViewBag.settings.Get("PhoneNumber")</span></span>
                 <ul>
                     <li>
                         <a href="/Categories" title="Shop">Shop</a>
@@ -90,7 +89,7 @@
                         <a href="/info" title="Hitches 101">Hitches 101</a>
                     </li>
                     <li>
-                        <a href="/faq" title="Frequently Asked Questions">FAQ</a>
+                        <a href="/Repair" title="Trailer Repair">Trailer Repair</a>
                     </li>
                     <li>
                         <a href="/Locations" title="Locations">Locations</a>
@@ -110,8 +109,8 @@
             <div class="sub_menu">
                 <div class="sub_menu_container">
                     <form method="get" action="/Search" class="search">
-                        <input type="search" name="search" id="mini-search" class="placeholder" placeholder="Search for Product">
-                        <input type="submit" id="btnSearch" value="" />
+                        <input type="search" name="search" id="mini-search" placeholder="Search for Product">
+                        <input type="submit" name="btnSearch" id="btnSearch" value="" />
                     </form>
                     <a href="/" title="Home" class="sub_link">Home</a>
                     @if (customer != null && customer.ID > 0) {
@@ -125,6 +124,7 @@
                     @if (customer != null && customer.ID > 0) {
                         <a href="/Authenticate/Logout" title="Log Out of your Account" class="sub_link">Log Out</a>
                     }
+                    <span class="phone">Call Us: 888.894.4824</span>
                 </div>
             </div>
         </div>
@@ -134,12 +134,12 @@
             </a>
             <div style="clear:both"></div>
             <form method="get" action="/Search" id="search_box">
-                <input type="submit" id="btnSearch" value="" />
+                <input type="submit" name="btnSearch" id="btnSearch" value="" />
                 <label for="search">
                     PRODUCT SEARCH
                     <span>Find What You're Looking For</span>
                 </label>
-                <input type="search" name="search" id="search" class="placeholder" placeholder="Search for Product">
+                <input type="search" name="search" id="search" placeholder="Search for Product">
                 
             </form>
             @if (!String.IsNullOrEmpty(ViewBag.settings.Get("HomeBannerTop"))) {
@@ -158,7 +158,7 @@
                         <ul>
                             @foreach (EcommercePlatform.Models.APICategory cat in parent_cats) {
                                 <li>
-                                    <a href="/Category/@HttpUtility.HtmlEncode(cat.catTitle.Trim())" title="@cat.catTitle.Trim()">@cat.catTitle.Trim()</a>
+                                    <a href="/Category/@cat.catID/@HttpUtility.HtmlEncode(cat.catTitle.Trim())" title="@cat.catTitle.Trim()">@cat.catTitle.Trim()</a>
                                 </li>
                             }
                         </ul>
@@ -230,11 +230,27 @@
     </div>
     <footer>
         <div id="footer_container">
-            <div class="footerlogo">
-                @if (!String.IsNullOrEmpty(ViewBag.settings.Get("HeaderLogoScroll"))) {
-                    <img src="@ViewBag.settings.Get("HeaderLogoScroll")" alt="@ViewBag.settings.Get("SiteName")" />
-                }
-                <span class="copy">&copy; @DateTime.Now.Year @ViewBag.settings.Get("SiteName"). All Rights Reserved.</span>
+            <div class="link_box">
+                <a href="/About Us">About Us</a>
+                <a href="/Blog">Blog</a>
+                <a href="/Testimonials">Testimonials</a>
+                <a href="/Locations">Locations</a>
+                <a href="/page/coupons">Coupons</a>
+                <a href="/Contact">Contact Us</a>
+            </div>
+
+            <div class="link_box">
+                <a href="/FAQ">FAQ</a>
+                <a href="/Shipping">Shipping and Return Information</a>
+                <a href="/Warranty">Warranties</a>
+                <a href="/PrivacyPolicy">Privacy Policy</a>
+                <a href="#">Sitemap</a>
+            </div>
+
+            <div class="company">
+                <span class="copy">Copyright &copy; @DateTime.Now.Year @ViewBag.settings.Get("SiteName")</span>
+                <span>CALL US WITH QUESTIONS: @ViewBag.settings.Get("PhoneNumber")</span>
+                <span>PARA ESPANOL: (713) TIRONES (1.713.847.6637)</span>
                 <div class="social_links">
                     @if (!String.IsNullOrEmpty(ViewBag.settings.Get("FacebookPageURL"))) {
                         <a href="@ViewBag.settings.Get("FacebookPageURL")" title="@ViewBag.settings.Get("SiteName") on Facebook">
@@ -254,33 +270,9 @@
                             <img src="/Content/img/footer/youtube_active.png" alt="@ViewBag.settings.Get("SiteName") on YouTube" class="active yt" />
                         </a>
                     }
-                    ​<a href="/Share/Index?type=site" title="Share via E-Mail" class="email-share" target="_blank">
+                    ​<a href="/Share/Index?type=site" title="Share via E-Mail" class="email-share">
                         <img src="/Content/img/footer/mail.png" alt="Share via E-Mail">
                     </a>
-                </div>
-            </div>
-            <div class="link_box">
-                <a href="/About Us">About Us</a>
-                <a href="/Blog">Blog</a>
-                <a href="/Testimonials">Testimonials</a>
-                <a href="/Locations" title="Locations">Locations</a>
-                <a href="/page/Orders - Changes, Cancellations, and Transit Times">Orders - Changes, Cancellations, and Transit Times</a>
-                <a href="/Contact" title="Contact Us">Contact Us</a>
-            </div>
-
-            <div class="link_box">
-                <a href="/FAQ">FAQ</a>
-                <a href="/page/Returns">Returns</a>
-                <a href="/page/Warranty">Warranties</a>
-                <a href="/page/PrivacyPolicy">Privacy Policy</a>
-                <a href="#">Sitemap</a>
-            </div>
-
-            <div class="company">
-                @if (!String.IsNullOrEmpty(ViewBag.settings.Get("PhoneNumber"))) {
-                    <span>CALL US WITH QUESTIONS: @ViewBag.settings.Get("PhoneNumber")</span>
-                }
-                <div class="footer_graphics">
                     <img src="/Content/img/footer/amex.png" alt="American Express" />
                     <img src="/Content/img/footer/mastercard.png" alt="Mastercard" />
                     <img src="/Content/img/footer/visa.png" alt="Visa" />
@@ -288,14 +280,14 @@
                     <img src="/Content/img/footer/google_checkout.png" alt="Google Checkout" />
                     <img src="/Content/img/footer/paypal.png" alt="PayPal" />
                     <br />
-                    <a href="http://www.authorize.net/" title="Authorize.Net Verified Merchant" target="_blank">
+                    <a href="http://www.authorize.net/" title="Authorize.Net Verified Merchant" class="merchantlogo" target="_blank">
                         <img src="/Content/img/footer/authorize.gif" alt="Authorize.Net Verified Merchant" class="authorize" />
                     </a>
-                    <a href="http://www.sema.org/" title="SEMA Specialty Equipment Market Association" target="_blank">
+                    <a href="http://www.sema.org/" title="SEMA Specialty Equipment Market Association" class="merchantlogo" target="_blank">
                         <img src="/Content/img/footer/sema.png" alt="SEMA Show" class="sema" />
                     </a>
                 </div>
-                <a href="http://www.curtmfg.com/" class="curtlogo" target="_blank"><img src="/Content/img/curt.jpg" alt="CURT Manufacturing - The FIRST Name in Towing Products" /></a>
+                <a href="http://www.curtmfg.com/" class="curtlogo" target="_blank"><img src="/Content/img/curt.jpg" alt="CURT Manufacturing - The FIRST Name in Towing Products"></a>
             </div>
         </div>
         <div class="clearfix"></div>
