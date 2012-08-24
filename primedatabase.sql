@@ -141,8 +141,8 @@ INSERT INTO Setting (groupID,name,isImage) VALUES (8,'FedExMeter',0);
 INSERT INTO Setting (groupID,name,isImage) VALUES (8,'FedExPassword',0);
 GO
 
-INSERT INTO Country (name,abbr) VALUES ('United States','USA');
-INSERT INTO Country (name,abbr) VALUES ('Canada','CAN');
+INSERT INTO Country (name,abbr,longAbbr) VALUES ('United States','US','USA');
+INSERT INTO Country (name,abbr,longAbbr) VALUES ('Canada','CA','CAN');
 GO
 
 INSERT INTO States (state,abbr,countryID,taxRate) VALUES ('Alabama','AL',1,0);
