@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" generation="1" functional="0" release="0" Id="2a68c797-f928-4fe2-903a-7307a5dd5fa8" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" generation="1" functional="0" release="0" Id="23ca25af-bcb4-43b1-93d0-648df01b7f96" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="eCommercePlatformGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -25,19 +25,14 @@
         </inPort>
       </componentports>
       <settings>
+        <aCS name="Certificate|PlatformWebRole:DiscountHitch" defaultValue="">
+          <maps>
+            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:DiscountHitch" />
+          </maps>
+        </aCS>
         <aCS name="Certificate|PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" defaultValue="">
           <maps>
             <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-          </maps>
-        </aCS>
-        <aCS name="Certificate|PlatformWebRole:NewSSLCert" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:NewSSLCert" />
-          </maps>
-        </aCS>
-        <aCS name="Certificate|PlatformWebRole:NoBarSSLCert" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:NoBarSSLCert" />
           </maps>
         </aCS>
         <aCS name="FTPServerRole:AccountKey" defaultValue="">
@@ -209,19 +204,14 @@
         </sFSwitchChannel>
       </channels>
       <maps>
+        <map name="MapCertificate|PlatformWebRole:DiscountHitch" kind="Identity">
+          <certificate>
+            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
+          </certificate>
+        </map>
         <map name="MapCertificate|PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" kind="Identity">
           <certificate>
             <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-          </certificate>
-        </map>
-        <map name="MapCertificate|PlatformWebRole:NewSSLCert" kind="Identity">
-          <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/NewSSLCert" />
-          </certificate>
-        </map>
-        <map name="MapCertificate|PlatformWebRole:NoBarSSLCert" kind="Identity">
-          <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/NoBarSSLCert" />
           </certificate>
         </map>
         <map name="MapFTPServerRole:AccountKey" kind="Identity">
@@ -402,7 +392,7 @@
               <inPort name="Endpoint1" protocol="http" portRanges="80" />
               <inPort name="Https" protocol="https" portRanges="443">
                 <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/NoBarSSLCert" />
+                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
                 </certificate>
               </inPort>
               <inPort name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" protocol="tcp" />
@@ -439,26 +429,20 @@
               <resourceReference name="EventStore" defaultAmount="[1000,1000,1000]" defaultSticky="false" kind="LogStore" />
             </resourcereferences>
             <storedcertificates>
-              <storedCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateStore="My" certificateLocation="System">
+              <storedCertificate name="Stored0DiscountHitch" certificateStore="CA" certificateLocation="System">
+                <certificate>
+                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
+                </certificate>
+              </storedCertificate>
+              <storedCertificate name="Stored1Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateStore="My" certificateLocation="System">
                 <certificate>
                   <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
                 </certificate>
               </storedCertificate>
-              <storedCertificate name="Stored1NewSSLCert" certificateStore="CA" certificateLocation="System">
-                <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/NewSSLCert" />
-                </certificate>
-              </storedCertificate>
-              <storedCertificate name="Stored2NoBarSSLCert" certificateStore="CA" certificateLocation="System">
-                <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/NoBarSSLCert" />
-                </certificate>
-              </storedCertificate>
             </storedcertificates>
             <certificates>
+              <certificate name="DiscountHitch" />
               <certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-              <certificate name="NewSSLCert" />
-              <certificate name="NoBarSSLCert" />
             </certificates>
           </role>
           <sCSPolicy>
@@ -510,24 +494,24 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="6355a491-2d77-43ba-a562-e4b09ba6f61d" ref="Microsoft.RedDog.Contract\ServiceContract\eCommercePlatformContract@ServiceDefinition.build">
+    <implementation Id="8a76a8b9-c799-49e0-ab94-1c25724d30ac" ref="Microsoft.RedDog.Contract\ServiceContract\eCommercePlatformContract@ServiceDefinition.build">
       <interfacereferences>
-        <interfaceReference Id="0b3f15eb-bcd5-4d9a-860c-0f2bb9bf5ab2" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:FTP@ServiceDefinition.build">
+        <interfaceReference Id="b94eb243-de69-4817-aca9-17702f312876" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:FTP@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole:FTP" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="5c5f6eca-f219-453a-af35-3befa1534821" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Endpoint1@ServiceDefinition.build">
+        <interfaceReference Id="82dd0742-cd26-490c-bc50-82b119fcda3a" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Endpoint1@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="feebc5cf-d2a1-40f8-93dd-62f906797be4" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Https@ServiceDefinition.build">
+        <interfaceReference Id="a30e092e-485a-4de1-8716-4e1c82294377" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Https@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Https" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="9b3bf15d-0220-4f71-9a0b-725594b42326" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput@ServiceDefinition.build">
+        <interfaceReference Id="f0d18346-3a6a-4813-98a3-af74283c704d" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" />
           </inPort>

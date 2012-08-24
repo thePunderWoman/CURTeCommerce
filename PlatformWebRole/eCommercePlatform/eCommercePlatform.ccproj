@@ -70,7 +70,8 @@
     <Folder Include="Profiles" />
   </ItemGroup>
   <ItemGroup>
-    <PublishProfile Include="Profiles\curt-platformProduction.azurePubxml" />
+    <PublishProfile Include="Profiles\discounthitch-production.azurePubxml" />
+    <PublishProfile Include="Profiles\hitchdepot-production.azurePubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

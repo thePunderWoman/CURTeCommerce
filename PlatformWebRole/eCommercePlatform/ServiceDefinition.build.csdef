@@ -21,7 +21,7 @@
     </Sites>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="http" port="80" />
-      <InputEndpoint name="Https" protocol="https" port="443" />
+      <InputEndpoint name="Https" protocol="https" port="443" certificate="DiscountHitch" />
     </Endpoints>
     <Imports>
       <Import moduleName="RemoteAccess" />
@@ -38,8 +38,7 @@
       <Setting name="UseAsyncMethods" />
     </ConfigurationSettings>
     <Certificates>
-      <Certificate name="NewSSLCert" storeLocation="LocalMachine" storeName="CA" />
-      <Certificate name="NoBarSSLCert" storeLocation="LocalMachine" storeName="CA" />
+      <Certificate name="DiscountHitch" storeLocation="LocalMachine" storeName="CA" />
     </Certificates>
   </WebRole>
   <WorkerRole name="FTPServerRole">

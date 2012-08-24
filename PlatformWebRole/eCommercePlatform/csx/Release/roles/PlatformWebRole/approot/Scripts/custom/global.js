@@ -257,7 +257,7 @@ $(function () {
         }
         if ($.browser.version < 8 || document.documentMode < 8) {
 
-            $('header').css('height', '130px').css('margin-bottom', '0px').css('margin-top', '90px');
+            $('header').css('height', '130px').css('margin-bottom', '0px').css('margin-top', '60px');
             $('header').find('.sub_bar').css('z-index', '15000').find('.logo').show();
             $('#top_bar').css('position', 'absolute');
             $('#scroll_logo').css('visibility', 'hidden');
@@ -279,7 +279,7 @@ $(function () {
     }
 
     if (animate_logo) {
-        $('header').css('height', '130px').css('margin-bottom', '0px').css('margin-top', '90px');
+        $('header').css('height', '130px').css('margin-bottom', '0px').css('margin-top', '60px');
         $('header').find('.logo').show();
         if ($(window).width() < 1020) {
             $('#top_bar').css('position', 'absolute');
