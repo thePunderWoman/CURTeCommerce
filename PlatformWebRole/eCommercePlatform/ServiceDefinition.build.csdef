@@ -21,7 +21,7 @@
     </Sites>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="http" port="80" />
-      <InputEndpoint name="Https" protocol="https" port="443" certificate="NoBarSSLCert" />
+      <InputEndpoint name="Https" protocol="https" port="443" />
     </Endpoints>
     <Imports>
       <Import moduleName="RemoteAccess" />

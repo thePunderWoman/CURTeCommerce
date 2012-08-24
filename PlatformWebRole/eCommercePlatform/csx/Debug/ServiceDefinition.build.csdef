@@ -21,7 +21,7 @@
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="http" port="80" localPort="80" />
-      <InputEndpoint name="Https" protocol="https" port="443" certificate="NoBarSSLCert" localPort="443" />
+      <InputEndpoint name="Https" protocol="https" port="443" localPort="443" />
       <InputEndpoint name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" protocol="tcp" port="3389" localPort="*" ignoreRoleInstanceStatus="true" />
       <InternalEndpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
         <FixedPortRange min="3389" max="3389" />
