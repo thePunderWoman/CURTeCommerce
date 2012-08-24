@@ -19,8 +19,7 @@
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="E637D9F6F95CD084795D1890719B36BC17EF406C" thumbprintAlgorithm="sha1" />
-      <Certificate name="NewSSLCert" thumbprint="1071233C03E2257978191E4824548825D6F5F5E0" thumbprintAlgorithm="sha1" />
-      <Certificate name="NoBarSSLCert" thumbprint="3B4068A2F7789DECA5AF56F1C326B1D4DA4C7D71" thumbprintAlgorithm="sha1" />
+      <Certificate name="DiscountHitch" thumbprint="3CA815FF6A75799C8A840187074E11551CDC750E" thumbprintAlgorithm="sha1" />
     </Certificates>
   </Role>
   <Role name="FTPServerRole">

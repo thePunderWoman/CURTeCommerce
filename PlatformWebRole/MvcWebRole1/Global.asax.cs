@@ -121,13 +121,13 @@ namespace MvcWebRole1 {
             routes.MapRoute(
                 "Shipping",
                 "Shipping",
-                new { controller = "Page", action = "Index", title = "Shipping/Return Information" }
+                new { controller = "Page", action = "Index", title = "Shipping and Returns" }
             );
 
             routes.MapRoute(
                 "Return",
                 "Returns",
-                new { controller = "Page", action = "Index", title = "Shipping/Return Information" }
+                new { controller = "Page", action = "Index", title = "Shipping and Returns" }
             );
 
             routes.MapRoute(

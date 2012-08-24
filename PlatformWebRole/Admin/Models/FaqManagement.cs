@@ -47,8 +47,11 @@ namespace Admin {
                 if (tmp != null && tmp._ID > 0) {
                     throw new Exception("Question exists, try again.");
                 }*/
-
-                this._order = db.FAQs.Select(x => x.order).Max();
+                try {
+                    this._order = db.FAQs.Select(x => x.order).Max();
+                } catch {
+                    this._order = 1;
+                }
                 db.FAQs.InsertOnSubmit(this);
             } else { // Update existing
                 FAQ exist = db.FAQs.Where(x => x.ID.Equals(this.ID)).FirstOrDefault<FAQ>();
