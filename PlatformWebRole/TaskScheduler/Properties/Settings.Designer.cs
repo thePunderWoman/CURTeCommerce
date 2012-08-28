@@ -26,8 +26,8 @@ namespace TaskScheduler.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=d49echki7t.database.windows.net;Initial Catalog=ecom_platform;Persist" +
-            " Security Info=True;User ID=hitchdepotusa;Password=eC0mm3rc3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=qxg5rqquyu.database.windows.net;Initial Catalog=dhitch;User ID=discou" +
+            "nthitch;Password=D1sc0untH!tch")]
         public string ecom_platformConnectionString {
             get {
                 return ((string)(this["ecom_platformConnectionString"]));
