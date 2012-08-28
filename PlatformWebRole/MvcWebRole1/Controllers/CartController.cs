@@ -19,10 +19,8 @@ namespace EcommercePlatform.Controllers {
             // Create Cart object from customer
             Cart cart = customer.Cart;
 
-            // Get the parts from this Cart
-            List<CartItem> parts = cart.GetParts();
-            cart.CartItems.Clear();
-            cart.CartItems.AddRange(parts);
+            // Get the api response from the parts in this Cart
+            cart.GetParts();
             ViewBag.cart = cart;
             return View();
         }
@@ -327,7 +325,7 @@ namespace EcommercePlatform.Controllers {
 
         public ShippingResponse getShipping() {
             Customer customer = new Customer();
-            Settings settings = new Settings();
+            Settings settings = ViewBag.settings;
             customer.GetFromStorage();
             if (!customer.LoggedIn()) {
                 Response.Redirect("/Authenticate");

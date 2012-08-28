@@ -30,9 +30,7 @@ namespace EcommercePlatform.Controllers {
             Cart cart = customer.Cart;
 
             // Get the parts from this Cart
-            List<CartItem> parts = cart.GetParts();
-            cart.CartItems.Clear();
-            cart.CartItems.AddRange(parts);
+            cart.GetParts();
 
             ViewBag.showShipping = true;
             ViewBag.cart = cart;
@@ -54,7 +52,7 @@ namespace EcommercePlatform.Controllers {
         [AcceptVerbs(HttpVerbs.Post),RequireHttps]
         public ActionResult Authorize() {
             Customer customer = new Customer();
-            Settings settings = new Settings();
+            Settings settings = ViewBag.settings;
             // Retrieve Customer from Sessions/Cookie
             customer.GetFromStorage();
             if (!customer.LoggedIn()) {
@@ -137,7 +135,7 @@ namespace EcommercePlatform.Controllers {
             }
 
             EcommercePlatformDataContext db = new EcommercePlatformDataContext();
-            Settings settings = new Settings();
+            Settings settings = ViewBag.settings;
             CheckoutShoppingCartRequest req = gButton.CreateRequest();
             if (Request.Url.Host.Contains("127.0.0") || Request.Url.Host.Contains("localhost") || settings.Get("GoogleCheckoutEnv") == "override") {
                 req.MerchantID = settings.Get("GoogleDevMerchantId");
@@ -234,9 +232,7 @@ namespace EcommercePlatform.Controllers {
             Cart cart = customer.Cart;
 
             // Get the parts from this Cart
-            List<CartItem> parts = cart.GetParts();
-            cart.CartItems.Clear();
-            cart.CartItems.AddRange(parts);
+            cart.GetParts();
 
             ViewBag.showShipping = true;
             ViewBag.cart = cart;
@@ -302,7 +298,6 @@ namespace EcommercePlatform.Controllers {
 
             order.BindAddresses();
             Payment payment = order.getPayment();
-
 
             ViewBag.order = order;
             ViewBag.payment = payment;

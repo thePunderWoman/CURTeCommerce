@@ -11,28 +11,26 @@ using System.Data.Linq;
 namespace EcommercePlatform.Models {
     public class Settings {
 
-        internal Dictionary<string,string> GetAll() {
+        public Dictionary<string, string> values { get; set; }
+
+        public Settings() {
+            this.values = Populate();
+        }
+
+        internal Dictionary<string, string> Populate() {
             Dictionary<string, string> settings = new Dictionary<string, string>();
-            try {
-                var sessionSettings = HttpContext.Current.Session["settings"];
-                if (sessionSettings != null && sessionSettings.GetType() == typeof(Dictionary<string, string>) && sessionSettings.ToString() != null) {
-                    settings = (Dictionary<string, string>)sessionSettings;
-                } else {
-                    throw new Exception();
-                }
-            } catch {
-                EcommercePlatformDataContext db = new EcommercePlatformDataContext();
-                settings = db.Settings.Select(p => new {p.name,p.value}).AsEnumerable().ToDictionary(kvp => kvp.name, kvp => kvp.value);
-                HttpContext.Current.Session.Add("settings", settings);
-            }
+            EcommercePlatformDataContext db = new EcommercePlatformDataContext();
+            settings = db.Settings.Select(p => new { p.name, p.value }).AsEnumerable().ToDictionary(kvp => kvp.name, kvp => kvp.value);
             return settings;
         }
 
         public string Get(string name = "") {
-            Dictionary<string, string> settings = GetAll();
             string val = "";
             try {
-                val = settings[name].Trim();
+                if (this.values.Count == 0) {
+                    this.values = Populate();
+                }
+                val = this.values[name].Trim();
             } catch { };
             return val;
         }

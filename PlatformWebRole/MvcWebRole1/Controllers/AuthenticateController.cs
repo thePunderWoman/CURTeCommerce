@@ -42,7 +42,6 @@ namespace EcommercePlatform.Controllers {
             ViewBag.countries = countries;
             ViewBag.error = TempData["error"];
             ViewBag.referrer = referrer;
-            ViewBag.settings = new Settings();
             return View();
         }
 
@@ -99,7 +98,6 @@ namespace EcommercePlatform.Controllers {
         public ActionResult Logout() {
             try {
 
-                Session.Remove("settings");
                 Session.Clear();
                 Session.Abandon();
 
@@ -114,7 +112,7 @@ namespace EcommercePlatform.Controllers {
 
         public ActionResult Signup() {
             Customer cust = new Customer();
-            Settings settings = new Settings();
+            Settings settings = ViewBag.settings;
             /*Address billing = new Address();
             Address shipping = new Address();*/
             bool loginAfterRegistration = false;
@@ -261,7 +259,6 @@ namespace EcommercePlatform.Controllers {
 
         public ActionResult Forgot() {
             ViewBag.error = TempData["error"];
-            ViewBag.settings = new Settings();
             return View();
         }
 
