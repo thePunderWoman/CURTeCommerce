@@ -35,6 +35,7 @@
   <WorkerRole name="FTPServerRole">
     <Endpoints>
       <InputEndpoint name="FTP" port="21" protocol="tcp" />
+      <InputEndpoint name="SFTP" protocol="https" port="22" certificate="discounthitch" />
     </Endpoints>
     <ConfigurationSettings>
       <Setting name="ProviderName" />
@@ -45,6 +46,9 @@
       <Setting name="UseHttps" />
       <Setting name="UseAsyncMethods" />
     </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="discounthitch" storeLocation="LocalMachine" storeName="CA" />
+    </Certificates>
   </WorkerRole>
   <WorkerRole name="TaskScheduler" vmsize="Small">
     <Imports>
