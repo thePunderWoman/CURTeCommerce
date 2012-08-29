@@ -83,7 +83,6 @@
                 <a href="/" id="scroll_logo" title="@settings.Get("SiteName")">
                     <img src="@settings.Get("HeaderLogoScroll")" alt="@settings.Get("SiteName")" />
                 </a>
-                <span class="phone">Call Us: <span>@settings.Get("PhoneNumber")</span></span>
                 <ul>
                     <li>
                         <a href="/Categories" title="Shop">Shop</a>
@@ -127,6 +126,7 @@
                     @if (customer != null && customer.ID > 0) {
                         <a href="/Authenticate/Logout" title="Log Out of your Account" class="sub_link">Log Out</a>
                     }
+                    <span class="phone">Call Us: @settings.Get("PhoneNumber")</span>
                 </div>
             </div>
         </div>
@@ -232,11 +232,27 @@
     </div>
     <footer>
         <div id="footer_container">
-            <div class="footerlogo">
-                @if (!String.IsNullOrEmpty(settings.Get("HeaderLogoScroll"))) {
-                    <img src="@settings.Get("HeaderLogoScroll")" alt="@settings.Get("SiteName")" />
+            <div class="link_box">
+                <a href="/About Us">About Us</a>
+                <a href="/Blog">Blog</a>
+                <a href="/Testimonials">Testimonials</a>
+                <a href="/Locations" title="Locations">Locations</a>
+                <a href="/Page/Coupons">Coupons</a>
+                <a href="/Contact" title="Contact Us">Contact Us</a>
+            </div>
+
+            <div class="link_box">
+                <a href="/FAQ">FAQ</a>
+                <a href="/Shipping">Shipping &amp Return Information</a>
+                <a href="/Warranty">Warranties</a>
+                <a href="/PrivacyPolicy">Privacy Policy</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="company">
+                <span class="copy">Copyright &copy; @DateTime.Now.Year @settings.Get("SiteName")</span>
+                @if (!String.IsNullOrEmpty(settings.Get("PhoneNumber"))) {
+                    <span>CALL US WITH QUESTIONS: @settings.Get("PhoneNumber")</span>
                 }
-                <span class="copy">&copy; @DateTime.Now.Year @settings.Get("SiteName"). All Rights Reserved.</span>
                 <div class="social_links">
                     @if (!String.IsNullOrEmpty(settings.Get("FacebookPageURL"))) {
                         <a href="@settings.Get("FacebookPageURL")" title="@settings.Get("SiteName") on Facebook">
@@ -259,30 +275,6 @@
                     ​<a href="/Share/Index?type=site" title="Share via E-Mail" class="email-share" target="_blank">
                         <img src="/Content/img/footer/mail.png" alt="Share via E-Mail">
                     </a>
-                </div>
-            </div>
-            <div class="link_box">
-                <a href="/About Us">About Us</a>
-                <a href="/Blog">Blog</a>
-                <a href="/Testimonials">Testimonials</a>
-                <a href="/Locations" title="Locations">Locations</a>
-                <a href="/page/Orders - Changes, Cancellations, and Transit Times">Orders - Changes, Cancellations, and Transit Times</a>
-                <a href="/Contact" title="Contact Us">Contact Us</a>
-            </div>
-
-            <div class="link_box">
-                <a href="/FAQ">FAQ</a>
-                <a href="/page/Returns">Returns</a>
-                <a href="/page/Warranty">Warranties</a>
-                <a href="/page/PrivacyPolicy">Privacy Policy</a>
-                <a href="#">Sitemap</a>
-            </div>
-
-            <div class="company">
-                @if (!String.IsNullOrEmpty(settings.Get("PhoneNumber"))) {
-                    <span>CALL US WITH QUESTIONS: @settings.Get("PhoneNumber")</span>
-                }
-                <div class="footer_graphics">
                     <img src="/Content/img/footer/amex.png" alt="American Express" />
                     <img src="/Content/img/footer/mastercard.png" alt="Mastercard" />
                     <img src="/Content/img/footer/visa.png" alt="Visa" />
