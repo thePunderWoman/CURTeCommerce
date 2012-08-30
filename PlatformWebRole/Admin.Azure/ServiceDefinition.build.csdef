@@ -24,5 +24,8 @@
     <ConfigurationSettings>
       <Setting name="StorageConnectionString" />
     </ConfigurationSettings>
+    <Startup>
+      <Task commandLine="Startup.cmd" executionContext="elevated" taskType="simple"></Task>
+    </Startup>
   </WebRole>
 </ServiceDefinition>

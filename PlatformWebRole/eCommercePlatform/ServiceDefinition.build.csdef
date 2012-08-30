@@ -41,12 +41,13 @@
       <Certificate name="DiscountHitch" storeLocation="LocalMachine" storeName="CA" />
     </Certificates>
     <Startup>
-      <Task commandLine="Startup.cmd" executionContext="limited" taskType="foreground"></Task>
+      <Task commandLine="Startup.cmd" executionContext="elevated" taskType="simple"></Task>
     </Startup>
   </WebRole>
   <WorkerRole name="FTPServerRole">
     <Endpoints>
       <InputEndpoint name="FTP" port="21" protocol="tcp" />
+      <InputEndpoint name="SFTP" protocol="https" port="22" certificate="discounthitch" />
     </Endpoints>
     <ConfigurationSettings>
       <Setting name="ProviderName" />
@@ -58,7 +59,7 @@
       <Setting name="UseAsyncMethods" />
     </ConfigurationSettings>
     <Certificates>
-      <Certificate name="HitchDepot" storeLocation="LocalMachine" storeName="CA" />
+      <Certificate name="discounthitch" storeLocation="LocalMachine" storeName="CA" />
     </Certificates>
   </WorkerRole>
   <WorkerRole name="TaskScheduler" vmsize="Small">

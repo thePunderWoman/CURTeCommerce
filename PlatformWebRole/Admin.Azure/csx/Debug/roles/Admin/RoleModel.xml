@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RoleModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Admin" version="1.6.21103.1459" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
+  <Startup>
+    <Task commandLine="Startup.cmd" executionContext="elevated" relativePath="approot\bin">
+      <Environment />
+    </Task>
+  </Startup>
   <Runtime>
     <EntryPoint>
       <NetFxEntryPoint assemblyName="Admin.dll" />

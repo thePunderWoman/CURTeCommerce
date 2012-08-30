@@ -4,6 +4,6 @@
   <Operation type="Path" path="base\x86" />
   <Operation type="Path" path="diagnostics\x64" />
   <PermissionLevels>
-    <StoredCert name="Stored0HitchDepot" permissionLevel="limitedOrElevated" />
+    <StoredCert name="Stored0discounthitch" permissionLevel="limitedOrElevated" />
   </PermissionLevels>
 </RuntimeSetup>

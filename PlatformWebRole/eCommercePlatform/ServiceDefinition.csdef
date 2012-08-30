@@ -31,6 +31,9 @@
     <Certificates>
       <Certificate name="DiscountHitch" storeLocation="LocalMachine" storeName="CA" />
     </Certificates>
+    <Startup>
+      <Task commandLine="Startup.cmd" executionContext="elevated" taskType="simple"></Task>
+    </Startup>
   </WebRole>
   <WorkerRole name="FTPServerRole">
     <Endpoints>
