@@ -40,6 +40,9 @@
     <Certificates>
       <Certificate name="DiscountHitch" storeLocation="LocalMachine" storeName="CA" />
     </Certificates>
+    <Startup>
+      <Task commandLine="Startup.cmd" executionContext="limited" taskType="foreground"></Task>
+    </Startup>
   </WebRole>
   <WorkerRole name="FTPServerRole">
     <Endpoints>
@@ -54,6 +57,9 @@
       <Setting name="UseHttps" />
       <Setting name="UseAsyncMethods" />
     </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="HitchDepot" storeLocation="LocalMachine" storeName="CA" />
+    </Certificates>
   </WorkerRole>
   <WorkerRole name="TaskScheduler" vmsize="Small">
     <Imports></Imports>

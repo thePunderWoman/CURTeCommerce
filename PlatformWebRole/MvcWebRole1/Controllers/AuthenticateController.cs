@@ -45,6 +45,7 @@ namespace EcommercePlatform.Controllers {
             return View();
         }
 
+        [RequireHttps]
         public ActionResult Login(string email = "", string password = "", int remember = 0, string redirect = "") {
             try {
                 /**
@@ -110,6 +111,7 @@ namespace EcommercePlatform.Controllers {
             return RedirectToAction("Index", "Authenticate");
         }
 
+        [RequireHttps]
         public ActionResult Signup() {
             Customer cust = new Customer();
             Settings settings = ViewBag.settings;
@@ -216,6 +218,9 @@ namespace EcommercePlatform.Controllers {
                     return Redirect("/Authenticate");
                 }
             } catch (Exception e) {
+                if (e.Message.ToLower().Contains("a potentially dangerous")) {
+                    throw new HttpException(403, "Forbidden");
+                }
                 TempData["customer"] = cust;
                 /*TempData["billing"] = billing;
                 TempData["shipping"] = shipping;*/
