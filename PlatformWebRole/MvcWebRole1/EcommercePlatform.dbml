@@ -83,6 +83,7 @@
       <Column Name="tracking_number" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
       <Column Name="voided" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Always" />
       <Association Name="Cart_CartItem" Member="CartItems" ThisKey="ID" OtherKey="order_id" Type="CartItem" />
+      <Association Name="Cart_Shipment" Member="Shipments" ThisKey="ID" OtherKey="order_id" Type="Shipment" />
       <Association Name="Address_Cart" Member="Billing" ThisKey="bill_to" OtherKey="ID" Type="Address" IsForeignKey="true" />
       <Association Name="Address_Cart1" Member="Shipping" ThisKey="ship_to" OtherKey="ID" Type="Address" IsForeignKey="true" />
     </Type>
@@ -331,7 +332,7 @@
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="number" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="dateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="orderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="orderID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="invoiceType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="billTo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="shipTo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -352,6 +353,7 @@
       <Column Name="termsDescription" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="paid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="printed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Invoice_InvoiceItem" Member="InvoiceItems" ThisKey="id" OtherKey="invoiceID" Type="InvoiceItem" />
       <Association Name="Invoice_InvoiceCode" Member="InvoiceCodes" ThisKey="id" OtherKey="invoiceID" Type="InvoiceCode" />
     </Type>
@@ -376,6 +378,17 @@
       <Column Name="value" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
       <Column Name="description" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Association Name="Invoice_InvoiceCode" Member="Invoice" ThisKey="invoiceID" OtherKey="id" Type="Invoice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shipment" Member="Shipments">
+    <Type Name="Shipment">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="shipment_number" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="tracking_number" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="dateShipped" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="weight" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Association Name="Cart_Shipment" Member="Cart" AccessModifier="Internal" ThisKey="order_id" OtherKey="ID" Type="Cart" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -91,7 +91,10 @@ namespace EcommercePlatform.Models {
                         try {
                             ReadInvoice(editext);
                             BlobManagement.MoveBlob(blob, "edi/archive", "edi/in");
-                        } catch { }
+                        } catch (Exception e) {
+                            string[] tos = new string [] {"jjaniuk@curtmfg.com"};
+                            UDF.SendEmail(tos, "Error in Invoice Read", false, e.Message + " " + e.StackTrace, false);
+                        }
                     } else if (blob.Name.ToLower().Contains("asn")) {
                         // ship notification
                         try {
@@ -141,7 +144,7 @@ namespace EcommercePlatform.Models {
                         string dt = lineelements[1].Substring(4,2) + "-" + lineelements[1].Substring(6,2) + "-" + lineelements[1].Substring(0,4);
                         inv.dateAdded = Convert.ToDateTime(dt);
                         inv.number = lineelements[2];
-                        inv.orderID = Convert.ToInt32(lineelements[4]);
+                        inv.orderID = lineelements[4];
                         switch (lineelements[7]) {
                             case "CN":
                                 inv.invoiceType = "Credit Invoice";
@@ -276,7 +279,10 @@ namespace EcommercePlatform.Models {
         internal void ReadShippingNotification(string editext) {
             string trackingcode = "";
             string purchaseOrderID = "";
+            string shipmentNumber = "";
+            string weight = "";
             Cart order = new Cart();
+            List<Shipment> shipments = new List<Shipment>();
             DateTime shipdate = DateTime.Now;
 
             List<string> edilines = editext.Split('~').ToList<string>();
@@ -286,6 +292,12 @@ namespace EcommercePlatform.Models {
                     case "ST":
                         // Beginning of invoice
                         order = new Cart();
+                        shipments = new List<Shipment>();
+                        weight = "";
+                        break;
+                    case "BSN":
+                        // Original Shipment Number from Shipper
+                        shipmentNumber = lineelements[2];
                         break;
                     case "PRF":
                         // Purchase Order Reference
@@ -294,16 +306,31 @@ namespace EcommercePlatform.Models {
                     case "REF":
                         // Tracking Code reference
                         trackingcode = lineelements[2];
+                        Shipment shipment = new Shipment {
+                            tracking_number = trackingcode
+                        };
+                        shipments.Add(shipment);
                         break;
                     case "DTM":
                         shipdate = Convert.ToDateTime(lineelements[2].Substring(4, 2) + "/" + lineelements[2].Substring(6, 2) + "/20" + lineelements[2].Substring(2, 2));
+                        break;
+                    case "TD1":
+                        weight = lineelements[7] + " " + lineelements[8];
                         break;
                     case "SE":
                         // End of Invoice
                         try {
                             order = new Cart().GetByPaymentID(Convert.ToInt32(purchaseOrderID));
-                            order.AddTrackingInfo(trackingcode);
-                            order.SendShippingNotification(shipdate);
+                            foreach (Shipment s in shipments) {
+                                s.order_id = order.ID;
+                                s.dateShipped = shipdate;
+                                s.shipment_number = shipmentNumber;
+                                s.weight = weight;
+                            }
+                            EcommercePlatformDataContext db = new EcommercePlatformDataContext();
+                            db.Shipments.InsertAllOnSubmit(shipments);
+                            db.SubmitChanges();
+                            order.SendShippingNotification();
                         } catch { }
                         break;
                 }
