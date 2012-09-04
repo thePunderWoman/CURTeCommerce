@@ -3,7 +3,6 @@
     string error = ViewBag.error ?? "";
     List<EcommercePlatform.Address> addresses = ViewBag.addresses ?? new List<EcommercePlatform.Address>();
     List<EcommercePlatform.Country> countries = ViewBag.countries ?? new List<EcommercePlatform.Country>();
-    int quebec = 59;
 
     ViewBag.Title = "Addresses";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -64,12 +63,12 @@
                     <legend>Add an Address</legend>
                     <label for="first">
                         First Name
-                        <input type="text" name="first" id="first" class="placeholder" placeholder="Enter a first name" required="required" title="First Name on address is required" />
+                        <input type="text" name="first" id="first" class="placeholder" placeholder="Enter a first name" required="required" title="First Name on address is required" value="@cust.fname" />
                     </label>
 
                     <label for="last">
                         Last Name
-                        <input type="text" name="last" id="last" class="placeholder" placeholder="Enter a last name" required="required" title="Last Name on address is required" />
+                        <input type="text" name="last" id="last" class="placeholder" placeholder="Enter a last name" required="required" title="Last Name on address is required" value="@cust.lname" />
                     </label>
 
                     <label for="street1">
@@ -93,9 +92,7 @@
                             @foreach (EcommercePlatform.Country country in countries) {
                                 <optgroup label="@country.name">
                                     @foreach (EcommercePlatform.State state in country.getProvinces()) {
-                                        if (state.stateID != quebec) {
-                                            <option value="@state.stateID">@(String.Format("{0} - {1}", state.abbr, state.state1))</option>
-                                        }
+                                        <option value="@state.stateID">@(String.Format("{0} - {1}", state.abbr, state.state1))</option>
                                     }
                                 </optgroup>
                             }

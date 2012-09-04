@@ -20,7 +20,6 @@
     }
 
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int quebec = 59;
 }
 <link href="/Content/view_sass/cart.css" rel="stylesheet" type="text/css" />
 <div class="content">
@@ -53,12 +52,12 @@
                         <a href="/Cart/Shipping" class="button">Proceed to Shipping</a>
                     </div>
                 }
-                <form class="simple-form @((cust.Cart.bill_to != 0) ? "hideme" : "")" id="add-billing-address" method="post" action="/Cart/AddBillingAddress">
+                <form class="simple-form @((cust.Cart.bill_to != 0) ? "hideme" : "")" id="add-billing-address" method="post" action="/Cart/AddBillingAddress" value="@cust.fname">
                     <fieldset>
                         <legend>Add a Billing Address</legend>
                         <label for="bfirst">
                             Billing First Name
-                            <input type="text" name="bfirst" id="bfirst" class="placeholder" placeholder="Enter the billing first name" required="required" title="Last Name on billing address is required" />
+                            <input type="text" name="bfirst" id="bfirst" class="placeholder" placeholder="Enter the billing first name" required="required" title="Last Name on billing address is required" value="@cust.lname" />
                         </label>
 
                         <label for="blast">
@@ -87,9 +86,7 @@
                                 @foreach (EcommercePlatform.Country country in countries) {
                                     <optgroup label="@country.name">
                                         @foreach (EcommercePlatform.State state in country.getProvinces()) {
-                                            if (state.stateID != quebec) {
-                                                <option value="@state.stateID">@(String.Format("{0} - {1}", state.abbr, state.state1))</option>
-                                            }
+                                            <option value="@state.stateID">@(String.Format("{0} - {1}", state.abbr, state.state1))</option>
                                         }
                                     </optgroup>
                                 }
