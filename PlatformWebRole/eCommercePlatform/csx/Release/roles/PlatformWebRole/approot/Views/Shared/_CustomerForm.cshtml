@@ -1,26 +1,9 @@
 ﻿@{
-    List<EcommercePlatform.Country> countries = ViewBag.countries;
-    if (countries == null) {
-        countries = new List<EcommercePlatform.Country>();
-    }
-
     EcommercePlatform.Customer cust = ViewBag.cust;
-    EcommercePlatform.Address billing = ViewBag.billing;
-    EcommercePlatform.Address shipping = ViewBag.shipping;
     string referrer = ViewBag.referrer ?? "";
-    if (billing == null) {
-        billing = new EcommercePlatform.Address();
-    }
-    if (shipping == null) {
-        shipping = new EcommercePlatform.Address();
-    }
     if (cust == null) {
         cust = new EcommercePlatform.Customer();
     }
-    cust.Address = billing;
-    cust.Address1 = shipping;
-    int quebec = 59;
-    // Quebec stateID = 59
 }
 <form class="simple-form" method="post" action="https://@Request.Url.Host@((ViewBag.setup)?"/Authenticate/Signup":"/Account/Save")">
     <input type="hidden" name="redirect" value="@referrer" />

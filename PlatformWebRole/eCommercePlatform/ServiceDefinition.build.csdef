@@ -39,9 +39,6 @@
     <Startup>
       <Task commandLine="Startup.cmd" executionContext="elevated" taskType="simple"></Task>
     </Startup>
-    <Imports>
-      <Import moduleName="RemoteAccess" />
-    </Imports>
   </WebRole>
   <WorkerRole name="FTPServerRole">
     <Endpoints>
@@ -60,15 +57,8 @@
     <Certificates>
       <Certificate name="discounthitch" storeLocation="LocalMachine" storeName="CA" />
     </Certificates>
-    <Imports>
-      <Import moduleName="RemoteAccess" />
-      <Import moduleName="RemoteForwarder" />
-    </Imports>
   </WorkerRole>
   <WorkerRole name="TaskScheduler" vmsize="Small">
-    <Imports>
-      <Import moduleName="RemoteAccess" />
-    </Imports>
     <Endpoints>
       <InternalEndpoint name="Endpoint1" protocol="tcp" />
     </Endpoints>

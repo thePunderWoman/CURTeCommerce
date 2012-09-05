@@ -4,11 +4,6 @@
     <Instances count="3" />
     <ConfigurationSettings>
       <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=dhitch;AccountKey=+spsWfONQJ6ozleogCTt2Pac4hP7xl3x3gvMYrwXH8GozDZ9cFfm89QUWcuFA+hsJ3KgfxtGoRQrDOYVXWjS4g==" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="dhitch" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCECNGwBnteQaDR6BRpoeqE+gwDQYJKoZIhvcNAQEBBQAEggEAqBb/8OvcYDRhbUrLUmpwT0PXTFzcLIEJ3WHtPwSTC8gkuXxq884J/mOuK06wqmJKtCDkOneLTxxZf+uQU4smaWhS5G9xC3E5DiWrILTIVuHL+KT9bS87gkFVbRtFzv3mRqqEdlEMEKf/gy7iSS/S5qSZiEVF1wuZEZNaIO4+LKHTjq5YEjpN1L/Wut4fSStC6B07o5uoHCYEm6zxmUqn5PwMUBYtFQjsFNZNTD+eS/bYOFTtlwn3zB6uVPwfhqaBNxC/CJ5u5K9cAFywRnEfSiykMHsXZF9nNVLfE6UW1cmiiFqc4l6oh3QHqyj6g82YBdAliIEBcoj7YqBu3wm0sjAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECOr/j+/+OA31gBD4AtPOeVWuaFxvWg+N+v4K" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2013-04-19T23:59:59.0000000-05:00" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
       <Setting name="AccountKey" value="+spsWfONQJ6ozleogCTt2Pac4hP7xl3x3gvMYrwXH8GozDZ9cFfm89QUWcuFA+hsJ3KgfxtGoRQrDOYVXWjS4g==" />
       <Setting name="AccountName" value="dhitch" />
       <Setting name="ProviderName" value="AzureBlobStorageProvider" />
@@ -18,7 +13,6 @@
       <Setting name="UseAsyncMethods" value="true" />
     </ConfigurationSettings>
     <Certificates>
-      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="E637D9F6F95CD084795D1890719B36BC17EF406C" thumbprintAlgorithm="sha1" />
       <Certificate name="DiscountHitch" thumbprint="3CA815FF6A75799C8A840187074E11551CDC750E" thumbprintAlgorithm="sha1" />
     </Certificates>
   </Role>
