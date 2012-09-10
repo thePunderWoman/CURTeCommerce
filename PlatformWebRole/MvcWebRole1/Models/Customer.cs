@@ -39,6 +39,14 @@ namespace EcommercePlatform {
             }
         }
 
+        internal void ValidateCurrentPassword(string pass) {
+            EcommercePlatformDataContext db = new EcommercePlatformDataContext();
+            Customer c = db.Customers.Where(x => x.ID.Equals(this.ID)).First<Customer>();
+            if (c.password != UDF.EncryptString(pass)) {
+                throw new Exception("The current password you entered was incorrect. Try Again");
+            }
+        }
+
         internal void ValidateEmail(string email1, string email2) {
             if (email1 == null || email1.Trim().Length == 0) {
                 throw new Exception("E-Mail address is required.");
@@ -99,15 +107,24 @@ namespace EcommercePlatform {
             }
         }
 
-        internal void Update(string fname, string lname, string phone, int receiveOffers, int receiveNewsletter) {
+        internal void Update(string email, string fname, string lname, string phone, int receiveOffers, int receiveNewsletter) {
             Customer tmp = new Customer();
             EcommercePlatformDataContext db = new EcommercePlatformDataContext();
             tmp = db.Customers.Where(x => x.ID.Equals(this.ID)).FirstOrDefault<Customer>();
+            tmp.email = email;
             tmp.fname = fname;
             tmp.lname = lname;
             tmp.phone = phone;
             tmp.receiveNewsletter = receiveNewsletter;
             tmp.receiveOffers = receiveOffers;
+            db.SubmitChanges();
+        }
+
+        internal void UpdatePassword() {
+            Customer tmp = new Customer();
+            EcommercePlatformDataContext db = new EcommercePlatformDataContext();
+            tmp = db.Customers.Where(x => x.ID.Equals(this.ID)).FirstOrDefault<Customer>();
+            tmp.password = this.password;
             db.SubmitChanges();
         }
 
@@ -200,6 +217,19 @@ namespace EcommercePlatform {
                 return db.Customers.Where(x => x.email.Equals(this.email)).FirstOrDefault<Customer>();
             } else {
                 return db.Customers.Where(x => x.email.Equals(email)).FirstOrDefault<Customer>();
+            }
+        }
+
+        public static bool CheckCustomerEmail(string email = null) {
+            EcommercePlatformDataContext db = new EcommercePlatformDataContext();
+            if (email == null) {
+                return true;
+            } else {
+                bool exists = false;
+                if(db.Customers.Where(x => x.email.Equals(email)).Count() > 0) {
+                    exists = true;
+                }
+                return exists;
             }
         }
 
@@ -381,10 +411,9 @@ namespace EcommercePlatform {
                 sb.Append("<p style='font-size:11px'>If you feel this was a mistake please disregard this e-mail.</p>");
 
                 UDF.SendEmail(tos, "New password for " + settings.Get("SiteName"), true, sb.ToString());
-                this.password = UDF.EncryptString(new_pass);
-            } catch (Exception) {
-                this.password = orig_pass;
-            }
+                Customer c = db.Customers.Where(x => x.ID.Equals(this.ID)).First<Customer>();
+                c.password = UDF.EncryptString(new_pass);
+            } catch {}
             db.SubmitChanges();
         }
 

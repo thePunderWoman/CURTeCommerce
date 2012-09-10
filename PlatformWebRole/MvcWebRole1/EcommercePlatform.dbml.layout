@@ -147,7 +147,7 @@
         <classShapeMoniker Id="a13f0b39-2107-46ec-9a66-4e76df6388b0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.625 : 2.06814697265625); (3.5 : 2.06814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.625 : 2.06814697265625); (3.5 : 2.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/EcommercePlatformDataContext/BlogPost/BlogPost_BlogPost_BlogCategory" />
       <nodes>
         <classShapeMoniker Id="30f4328c-76fe-4a99-a463-9b8eedbe491f" />
@@ -294,14 +294,14 @@
         <elementListCompartment Id="9339aab8-6747-44cc-8169-593afbacab1e" absoluteBounds="3.7649999999999997, 17.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 15.7315991210937); (3.75 : 15.7315991210937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 15.7315991210937); (3.75 : 15.7315991210937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/EcommercePlatformDataContext/Invoice/Invoice_InvoiceItem" />
       <nodes>
         <classShapeMoniker Id="8a29f739-56a0-4efb-967f-d0e8c763e123" />
         <classShapeMoniker Id="e185c53e-23d2-40f6-9c05-431f4cca47a9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 18.3565991210938); (3.75 : 18.3565991210938)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 18.3565991210938); (3.75 : 18.3565991210938)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/EcommercePlatformDataContext/Invoice/Invoice_InvoiceCode" />
       <nodes>
         <classShapeMoniker Id="8a29f739-56a0-4efb-967f-d0e8c763e123" />
@@ -321,5 +321,11 @@
         <classShapeMoniker Id="e6295791-117f-4152-ab8d-c66218637990" />
       </nodes>
     </associationConnector>
+    <classShape Id="6fa456e6-8841-4a44-bffa-31051324120d" absoluteBounds="6.625, 15.875, 2, 2.5401025390625">
+      <DataClassMoniker Name="/EcommercePlatformDataContext/InvoiceAddress" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2232cbc5-d7f2-467f-8e5a-ec5b7d072671" absoluteBounds="6.64, 16.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
