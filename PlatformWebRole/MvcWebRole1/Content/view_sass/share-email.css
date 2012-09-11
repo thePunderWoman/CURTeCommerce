@@ -5,7 +5,7 @@
 
 span.share-heading{
     font-size:18px;
-    color:#FA241A;
+    color:#F28705;
     margin-bottom:15px;
     display: block;
 }
@@ -57,7 +57,7 @@ form.left{
 .share-form input[type=submit]{
     display:block;
     border:none;
-    background:#FA241A;
+    background:#F28705;
     color:white;
     font-size:16px;
     min-width:100px;
@@ -71,10 +71,10 @@ form.left{
 
 .share-form input[type=submit]:hover,.share-form input[type=submit]:active,.share-form input[type=submit]:focus{
     background:#e07802;
-    -moz-box-shadow: -1px -1px 3px #FA241A;
-	-webkit-box-shadow: -1px -1px 3px #FA241A;
-	-o-box-shadow: -1px -1px 3px #FA241A;
-	box-shadow: -1px -1px 3px #FA241A;
+    -moz-box-shadow: -1px -1px 3px #F28705;
+	-webkit-box-shadow: -1px -1px 3px #F28705;
+	-o-box-shadow: -1px -1px 3px #F28705;
+	box-shadow: -1px -1px 3px #F28705;
 }
 
 div.part_info{
