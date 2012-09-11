@@ -75,11 +75,11 @@ article.location div.right span img{
 }
 
 article.location div.right span:hover,article.location div.right span:active{
-    color: #FA241A;
+    color: #F28705;
 }
 
 div.infoWindow span{ display:block; padding: 4px 2px }
-div.infoWindow span.directions_easy:hover{ color:#FA241A; cursor:pointer }
+div.infoWindow span.directions_easy:hover{ color:#F28705; cursor:pointer }
 div.infoWindow span img{ width: 15px;padding:0px 2px 6px 2px; }
 div.infoWindow span.title{
     font-size: 14px;

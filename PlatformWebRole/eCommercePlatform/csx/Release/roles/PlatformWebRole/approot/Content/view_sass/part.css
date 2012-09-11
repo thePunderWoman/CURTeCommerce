@@ -64,14 +64,14 @@
 .purchase form input {
     vertical-align: top;
     margin: 6px 0px;
-    background: #FA241A;
-    background: -moz-linear-gradient(top, #FA241A 30%, #BF3504 98%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FA241A), color-stop(98%,#BF3504));
-    background: -webkit-linear-gradient(top, #FA241A 30%,#BF3504 98%);
-    background: -o-linear-gradient(top, #FA241A 30%,#BF3504 98%);
-    background: -ms-linear-gradient(top, #FA241A 30%,#BF3504 98%);
-    background: linear-gradient(top, #FA241A 30%,#BF3504 98%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FA241A', endColorstr='#bf3504',GradientType=0 );
+    background: #f28705;
+    background: -moz-linear-gradient(top, #f28705 30%, #BF3504 98%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f28705), color-stop(98%,#BF3504));
+    background: -webkit-linear-gradient(top, #f28705 30%,#BF3504 98%);
+    background: -o-linear-gradient(top, #f28705 30%,#BF3504 98%);
+    background: -ms-linear-gradient(top, #f28705 30%,#BF3504 98%);
+    background: linear-gradient(top, #f28705 30%,#BF3504 98%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f28705', endColorstr='#bf3504',GradientType=0 );
     border-radius: 4px;
     color: white;
     text-decoration: none;
