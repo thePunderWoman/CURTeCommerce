@@ -231,7 +231,13 @@ namespace EcommercePlatform.Models {
                             i.quantity = 0;
                         }
                         i.price = Convert.ToDecimal(lineelements[4]);
-                        i.partID = lineelements[9];
+                        if (lineelements[6] == "VN") {
+                            //VN equals Vender Number aka Curt Part Number
+                            i.partID = lineelements[7];
+                        }
+                        if (lineelements[8] == "VN") {
+                            i.partID = lineelements[9];
+                        }
                         i.description = lineelements[15];
                         /*InvoiceItem i = new InvoiceItem {
                             quantity = Convert.ToInt32(lineelements[2]),
