@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" generation="1" functional="0" release="0" Id="e6dc16d2-37bb-4c87-9e29-36e85a5455af" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" generation="1" functional="0" release="0" Id="a30f34a3-5065-4478-adaa-0d8552dc0a76" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="eCommercePlatformGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -426,24 +426,24 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="9bc010b0-4e28-4446-8ba2-5599b5ea7fe4" ref="Microsoft.RedDog.Contract\ServiceContract\eCommercePlatformContract@ServiceDefinition.build">
+    <implementation Id="cc5321b9-24ad-4058-a376-89b40a51b085" ref="Microsoft.RedDog.Contract\ServiceContract\eCommercePlatformContract@ServiceDefinition.build">
       <interfacereferences>
-        <interfaceReference Id="21a9f1ef-88c3-4a14-bee1-1de1d2e73607" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:FTP@ServiceDefinition.build">
+        <interfaceReference Id="1d39599e-05e4-4ce7-816e-0c8c4d6d3429" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:FTP@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole:FTP" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="55be6128-546e-4d74-99b4-26f3b2a4d361" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:SFTP@ServiceDefinition.build">
+        <interfaceReference Id="03f10e6a-7090-4887-ad2c-b13c9073a490" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:SFTP@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole:SFTP" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="0e6afa21-4887-4a2f-b9de-493a8bd4ea85" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Endpoint1@ServiceDefinition.build">
+        <interfaceReference Id="e3d4da80-dfe6-4db0-98b7-30810ef04bcb" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Endpoint1@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="e9ae95e3-4ad5-450f-8995-3e068769dcd1" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Https@ServiceDefinition.build">
+        <interfaceReference Id="3a8a0ce2-b9fe-402e-8b74-1032a22d33ef" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Https@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Https" />
           </inPort>
