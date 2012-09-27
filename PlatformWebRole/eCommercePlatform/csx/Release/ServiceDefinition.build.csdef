@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-  <WebRole name="Admin">
+  <WebRole name="Admin" vmsize="ExtraSmall">
     <LocalResources>
       <LocalStorage name="DiagnosticStore" sizeInMB="4096" cleanOnRoleRecycle="false" />
     </LocalResources>
@@ -12,7 +12,7 @@
     </Endpoints>
     <Certificates />
   </WebRole>
-  <WebRole name="PlatformWebRole" vmsize="Medium">
+  <WebRole name="PlatformWebRole" vmsize="ExtraSmall">
     <LocalResources>
       <LocalStorage name="DiagnosticStore" sizeInMB="4096" cleanOnRoleRecycle="false" />
     </LocalResources>
@@ -34,7 +34,7 @@
       <Certificate name="DiscountHitch" storeLocation="LocalMachine" storeName="CA" />
     </Certificates>
   </WebRole>
-  <WorkerRole name="FTPServerRole">
+  <WorkerRole name="FTPServerRole" vmsize="ExtraSmall">
     <LocalResources>
       <LocalStorage name="DiagnosticStore" sizeInMB="4096" cleanOnRoleRecycle="false" />
     </LocalResources>
@@ -55,7 +55,7 @@
       <Certificate name="discounthitch" storeLocation="LocalMachine" storeName="CA" />
     </Certificates>
   </WorkerRole>
-  <WorkerRole name="TaskScheduler">
+  <WorkerRole name="TaskScheduler" vmsize="ExtraSmall">
     <LocalResources>
       <LocalStorage name="DiagnosticStore" sizeInMB="4096" cleanOnRoleRecycle="false" />
     </LocalResources>
