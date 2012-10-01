@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" generation="1" functional="0" release="0" Id="e161492f-fa60-42ab-bda0-3da900fc2951" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" generation="1" functional="0" release="0" Id="e08aa379-ade6-40c0-9350-54630aca745c" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="eCommercePlatformGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -13,9 +13,9 @@
             <lBChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/LB:FTPServerRole:FTP" />
           </inToChannel>
         </inPort>
-        <inPort name="FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" protocol="tcp">
+        <inPort name="FTPServerRole:SFTP" protocol="https">
           <inToChannel>
-            <lBChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/LB:FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" />
+            <lBChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/LB:FTPServerRole:SFTP" />
           </inToChannel>
         </inPort>
         <inPort name="PlatformWebRole:Endpoint1" protocol="http">
@@ -30,31 +30,6 @@
         </inPort>
       </componentports>
       <settings>
-        <aCS name="Admin:Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapAdmin:Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
-          </maps>
-        </aCS>
-        <aCS name="Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapAdmin:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" />
-          </maps>
-        </aCS>
-        <aCS name="Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapAdmin:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" />
-          </maps>
-        </aCS>
-        <aCS name="Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapAdmin:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" />
-          </maps>
-        </aCS>
-        <aCS name="Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapAdmin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" />
-          </maps>
-        </aCS>
         <aCS name="Admin:StorageConnectionString" defaultValue="">
           <maps>
             <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapAdmin:StorageConnectionString" />
@@ -65,39 +40,14 @@
             <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapAdminInstances" />
           </maps>
         </aCS>
-        <aCS name="Certificate|Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" defaultValue="">
+        <aCS name="Certificate|FTPServerRole:discounthitch" defaultValue="">
           <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
+            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|FTPServerRole:discounthitch" />
           </maps>
         </aCS>
-        <aCS name="Certificate|FTPServerRole:HitchDepot" defaultValue="">
+        <aCS name="Certificate|PlatformWebRole:DiscountHitch" defaultValue="">
           <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|FTPServerRole:HitchDepot" />
-          </maps>
-        </aCS>
-        <aCS name="Certificate|FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-          </maps>
-        </aCS>
-        <aCS name="Certificate|PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-          </maps>
-        </aCS>
-        <aCS name="Certificate|PlatformWebRole:NewSSLCert" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:NewSSLCert" />
-          </maps>
-        </aCS>
-        <aCS name="Certificate|PlatformWebRole:NoBarSSLCert" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:NoBarSSLCert" />
-          </maps>
-        </aCS>
-        <aCS name="Certificate|TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
+            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:DiscountHitch" />
           </maps>
         </aCS>
         <aCS name="FTPServerRole:AccountKey" defaultValue="">
@@ -113,31 +63,6 @@
         <aCS name="FTPServerRole:BaseUri" defaultValue="">
           <maps>
             <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapFTPServerRole:BaseUri" />
-          </maps>
-        </aCS>
-        <aCS name="FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapFTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" />
-          </maps>
-        </aCS>
-        <aCS name="FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapFTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" />
-          </maps>
-        </aCS>
-        <aCS name="FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapFTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" />
-          </maps>
-        </aCS>
-        <aCS name="FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapFTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" />
-          </maps>
-        </aCS>
-        <aCS name="FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapFTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" />
           </maps>
         </aCS>
         <aCS name="FTPServerRole:Mode" defaultValue="">
@@ -180,26 +105,6 @@
             <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapPlatformWebRole:BaseUri" />
           </maps>
         </aCS>
-        <aCS name="PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapPlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" />
-          </maps>
-        </aCS>
-        <aCS name="PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapPlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" />
-          </maps>
-        </aCS>
-        <aCS name="PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapPlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" />
-          </maps>
-        </aCS>
-        <aCS name="PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapPlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" />
-          </maps>
-        </aCS>
         <aCS name="PlatformWebRole:Mode" defaultValue="">
           <maps>
             <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapPlatformWebRole:Mode" />
@@ -240,26 +145,6 @@
             <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapTaskScheduler:AccountName" />
           </maps>
         </aCS>
-        <aCS name="TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapTaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" />
-          </maps>
-        </aCS>
-        <aCS name="TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapTaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" />
-          </maps>
-        </aCS>
-        <aCS name="TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapTaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" />
-          </maps>
-        </aCS>
-        <aCS name="TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapTaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" />
-          </maps>
-        </aCS>
         <aCS name="TaskScheduler:ProviderName" defaultValue="">
           <maps>
             <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapTaskScheduler:ProviderName" />
@@ -287,9 +172,9 @@
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/FTP" />
           </toPorts>
         </lBChannel>
-        <lBChannel name="LB:FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput">
+        <lBChannel name="LB:FTPServerRole:SFTP">
           <toPorts>
-            <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" />
+            <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/SFTP" />
           </toPorts>
         </lBChannel>
         <lBChannel name="LB:PlatformWebRole:Endpoint1">
@@ -302,58 +187,13 @@
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Https" />
           </toPorts>
         </lBChannel>
-        <sFSwitchChannel name="SW:Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp">
-          <toPorts>
-            <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin/Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-          </toPorts>
-        </sFSwitchChannel>
-        <sFSwitchChannel name="SW:FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp">
-          <toPorts>
-            <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-          </toPorts>
-        </sFSwitchChannel>
-        <sFSwitchChannel name="SW:PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp">
-          <toPorts>
-            <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-          </toPorts>
-        </sFSwitchChannel>
         <sFSwitchChannel name="SW:TaskScheduler:Endpoint1">
           <toPorts>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskScheduler/Endpoint1" />
           </toPorts>
         </sFSwitchChannel>
-        <sFSwitchChannel name="SW:TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp">
-          <toPorts>
-            <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskScheduler/Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-          </toPorts>
-        </sFSwitchChannel>
       </channels>
       <maps>
-        <map name="MapAdmin:Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin/Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
-          </setting>
-        </map>
-        <map name="MapAdmin:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" />
-          </setting>
-        </map>
-        <map name="MapAdmin:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" />
-          </setting>
-        </map>
-        <map name="MapAdmin:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" />
-          </setting>
-        </map>
-        <map name="MapAdmin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin/Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" />
-          </setting>
-        </map>
         <map name="MapAdmin:StorageConnectionString" kind="Identity">
           <setting>
             <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin/StorageConnectionString" />
@@ -364,39 +204,14 @@
             <sCSPolicyIDMoniker name="/eCommercePlatform/eCommercePlatformGroup/AdminInstances" />
           </setting>
         </map>
-        <map name="MapCertificate|Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" kind="Identity">
+        <map name="MapCertificate|FTPServerRole:discounthitch" kind="Identity">
           <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin/Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
+            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/discounthitch" />
           </certificate>
         </map>
-        <map name="MapCertificate|FTPServerRole:HitchDepot" kind="Identity">
+        <map name="MapCertificate|PlatformWebRole:DiscountHitch" kind="Identity">
           <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/HitchDepot" />
-          </certificate>
-        </map>
-        <map name="MapCertificate|FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" kind="Identity">
-          <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-          </certificate>
-        </map>
-        <map name="MapCertificate|PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" kind="Identity">
-          <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-          </certificate>
-        </map>
-        <map name="MapCertificate|PlatformWebRole:NewSSLCert" kind="Identity">
-          <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/NewSSLCert" />
-          </certificate>
-        </map>
-        <map name="MapCertificate|PlatformWebRole:NoBarSSLCert" kind="Identity">
-          <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/NoBarSSLCert" />
-          </certificate>
-        </map>
-        <map name="MapCertificate|TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" kind="Identity">
-          <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskScheduler/Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
+            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
           </certificate>
         </map>
         <map name="MapFTPServerRole:AccountKey" kind="Identity">
@@ -412,31 +227,6 @@
         <map name="MapFTPServerRole:BaseUri" kind="Identity">
           <setting>
             <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/BaseUri" />
-          </setting>
-        </map>
-        <map name="MapFTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" />
-          </setting>
-        </map>
-        <map name="MapFTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" />
-          </setting>
-        </map>
-        <map name="MapFTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" />
-          </setting>
-        </map>
-        <map name="MapFTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" />
-          </setting>
-        </map>
-        <map name="MapFTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" />
           </setting>
         </map>
         <map name="MapFTPServerRole:Mode" kind="Identity">
@@ -479,26 +269,6 @@
             <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/BaseUri" />
           </setting>
         </map>
-        <map name="MapPlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" />
-          </setting>
-        </map>
-        <map name="MapPlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" />
-          </setting>
-        </map>
-        <map name="MapPlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" />
-          </setting>
-        </map>
-        <map name="MapPlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" />
-          </setting>
-        </map>
         <map name="MapPlatformWebRole:Mode" kind="Identity">
           <setting>
             <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Mode" />
@@ -539,26 +309,6 @@
             <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskScheduler/AccountName" />
           </setting>
         </map>
-        <map name="MapTaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskScheduler/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" />
-          </setting>
-        </map>
-        <map name="MapTaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskScheduler/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" />
-          </setting>
-        </map>
-        <map name="MapTaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskScheduler/Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" />
-          </setting>
-        </map>
-        <map name="MapTaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" kind="Identity">
-          <setting>
-            <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskScheduler/Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" />
-          </setting>
-        </map>
         <map name="MapTaskScheduler:ProviderName" kind="Identity">
           <setting>
             <aCSMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskScheduler/ProviderName" />
@@ -580,56 +330,20 @@
           <role name="Admin" generation="1" functional="0" release="0" software="C:\Users\jjaniuk\Projects\eCommercePlatform\PlatformWebRole\eCommercePlatform\csx\Debug\roles\Admin" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="768" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
             <componentports>
               <inPort name="Endpoint1" protocol="http" portRanges="8080" />
-              <inPort name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp" portRanges="3389" />
-              <outPort name="Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
-              <outPort name="FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
-              <outPort name="PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
               <outPort name="TaskScheduler:Endpoint1" protocol="tcp">
                 <outToChannel>
                   <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:TaskScheduler:Endpoint1" />
                 </outToChannel>
               </outPort>
-              <outPort name="TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
             </componentports>
             <settings>
-              <aCS name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" defaultValue="" />
               <aCS name="StorageConnectionString" defaultValue="" />
-              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;Admin&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
+              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;Admin&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;SFTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
             </settings>
             <resourcereferences>
               <resourceReference name="DiagnosticStore" defaultAmount="[4096,4096,4096]" defaultSticky="true" kind="Directory" />
               <resourceReference name="EventStore" defaultAmount="[1000,1000,1000]" defaultSticky="false" kind="LogStore" />
             </resourcereferences>
-            <storedcertificates>
-              <storedCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateStore="My" certificateLocation="System">
-                <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin/Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-                </certificate>
-              </storedCertificate>
-            </storedcertificates>
-            <certificates>
-              <certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-            </certificates>
           </role>
           <sCSPolicy>
             <sCSPolicyIDMoniker name="/eCommercePlatform/eCommercePlatformGroup/AdminInstances" />
@@ -640,31 +354,14 @@
           <role name="FTPServerRole" generation="1" functional="0" release="0" software="C:\Users\jjaniuk\Projects\eCommercePlatform\PlatformWebRole\eCommercePlatform\csx\Debug\roles\FTPServerRole" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaWorkerHost.exe " memIndex="768" hostingEnvironment="consoleroleadmin" hostingEnvironmentVersion="2">
             <componentports>
               <inPort name="FTP" protocol="tcp" portRanges="21" />
-              <inPort name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" protocol="tcp" />
-              <inPort name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp" portRanges="3389" />
-              <outPort name="Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
-              <outPort name="FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
-              <outPort name="PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
+              <inPort name="SFTP" protocol="https" portRanges="22">
+                <certificate>
+                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/discounthitch" />
+                </certificate>
+              </inPort>
               <outPort name="TaskScheduler:Endpoint1" protocol="tcp">
                 <outToChannel>
                   <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:TaskScheduler:Endpoint1" />
-                </outToChannel>
-              </outPort>
-              <outPort name="TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
                 </outToChannel>
               </outPort>
             </componentports>
@@ -672,36 +369,25 @@
               <aCS name="AccountKey" defaultValue="" />
               <aCS name="AccountName" defaultValue="" />
               <aCS name="BaseUri" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" defaultValue="" />
               <aCS name="Mode" defaultValue="" />
               <aCS name="ProviderName" defaultValue="" />
               <aCS name="UseAsyncMethods" defaultValue="" />
               <aCS name="UseHttps" defaultValue="" />
-              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;FTPServerRole&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
+              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;FTPServerRole&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;SFTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
             </settings>
             <resourcereferences>
               <resourceReference name="DiagnosticStore" defaultAmount="[4096,4096,4096]" defaultSticky="true" kind="Directory" />
               <resourceReference name="EventStore" defaultAmount="[1000,1000,1000]" defaultSticky="false" kind="LogStore" />
             </resourcereferences>
             <storedcertificates>
-              <storedCertificate name="Stored0HitchDepot" certificateStore="CA" certificateLocation="System">
+              <storedCertificate name="Stored0discounthitch" certificateStore="CA" certificateLocation="System">
                 <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/HitchDepot" />
-                </certificate>
-              </storedCertificate>
-              <storedCertificate name="Stored1Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateStore="My" certificateLocation="System">
-                <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
+                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/discounthitch" />
                 </certificate>
               </storedCertificate>
             </storedcertificates>
             <certificates>
-              <certificate name="HitchDepot" />
-              <certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
+              <certificate name="discounthitch" />
             </certificates>
           </role>
           <sCSPolicy>
@@ -715,33 +401,12 @@
               <inPort name="Endpoint1" protocol="http" portRanges="80" />
               <inPort name="Https" protocol="https" portRanges="443">
                 <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/NoBarSSLCert" />
+                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
                 </certificate>
               </inPort>
-              <inPort name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp" portRanges="3389" />
-              <outPort name="Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
-              <outPort name="FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
-              <outPort name="PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
               <outPort name="TaskScheduler:Endpoint1" protocol="tcp">
                 <outToChannel>
                   <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:TaskScheduler:Endpoint1" />
-                </outToChannel>
-              </outPort>
-              <outPort name="TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
                 </outToChannel>
               </outPort>
             </componentports>
@@ -749,42 +414,26 @@
               <aCS name="AccountKey" defaultValue="" />
               <aCS name="AccountName" defaultValue="" />
               <aCS name="BaseUri" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" defaultValue="" />
               <aCS name="Mode" defaultValue="" />
               <aCS name="ProviderName" defaultValue="" />
               <aCS name="StorageConnectionString" defaultValue="" />
               <aCS name="UseAsyncMethods" defaultValue="" />
               <aCS name="UseHttps" defaultValue="" />
-              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;PlatformWebRole&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
+              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;PlatformWebRole&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;SFTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
             </settings>
             <resourcereferences>
               <resourceReference name="DiagnosticStore" defaultAmount="[4096,4096,4096]" defaultSticky="true" kind="Directory" />
               <resourceReference name="EventStore" defaultAmount="[1000,1000,1000]" defaultSticky="false" kind="LogStore" />
             </resourcereferences>
             <storedcertificates>
-              <storedCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateStore="My" certificateLocation="System">
+              <storedCertificate name="Stored0DiscountHitch" certificateStore="CA" certificateLocation="System">
                 <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-                </certificate>
-              </storedCertificate>
-              <storedCertificate name="Stored1NewSSLCert" certificateStore="CA" certificateLocation="System">
-                <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/NewSSLCert" />
-                </certificate>
-              </storedCertificate>
-              <storedCertificate name="Stored2NoBarSSLCert" certificateStore="CA" certificateLocation="System">
-                <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/NoBarSSLCert" />
+                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
                 </certificate>
               </storedCertificate>
             </storedcertificates>
             <certificates>
-              <certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-              <certificate name="NewSSLCert" />
-              <certificate name="NoBarSSLCert" />
+              <certificate name="DiscountHitch" />
             </certificates>
           </role>
           <sCSPolicy>
@@ -796,58 +445,23 @@
           <role name="TaskScheduler" generation="1" functional="0" release="0" software="C:\Users\jjaniuk\Projects\eCommercePlatform\PlatformWebRole\eCommercePlatform\csx\Debug\roles\TaskScheduler" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaWorkerHost.exe " memIndex="768" hostingEnvironment="consoleroleadmin" hostingEnvironmentVersion="2">
             <componentports>
               <inPort name="Endpoint1" protocol="tcp" />
-              <inPort name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp" portRanges="3389" />
-              <outPort name="Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:Admin:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
-              <outPort name="FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
-              <outPort name="PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:PlatformWebRole:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-                </outToChannel>
-              </outPort>
               <outPort name="TaskScheduler:Endpoint1" protocol="tcp">
                 <outToChannel>
                   <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:TaskScheduler:Endpoint1" />
-                </outToChannel>
-              </outPort>
-              <outPort name="TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
-                <outToChannel>
-                  <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:TaskScheduler:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
                 </outToChannel>
               </outPort>
             </componentports>
             <settings>
               <aCS name="AccountKey" defaultValue="" />
               <aCS name="AccountName" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" defaultValue="" />
-              <aCS name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" defaultValue="" />
               <aCS name="ProviderName" defaultValue="" />
               <aCS name="StorageConnectionString" defaultValue="" />
-              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;TaskScheduler&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
+              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;TaskScheduler&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;SFTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
             </settings>
             <resourcereferences>
               <resourceReference name="DiagnosticStore" defaultAmount="[4096,4096,4096]" defaultSticky="true" kind="Directory" />
               <resourceReference name="EventStore" defaultAmount="[1000,1000,1000]" defaultSticky="false" kind="LogStore" />
             </resourcereferences>
-            <storedcertificates>
-              <storedCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateStore="My" certificateLocation="System">
-                <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskScheduler/Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-                </certificate>
-              </storedCertificate>
-            </storedcertificates>
-            <certificates>
-              <certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" />
-            </certificates>
           </role>
           <sCSPolicy>
             <sCSPolicyIDMoniker name="/eCommercePlatform/eCommercePlatformGroup/TaskSchedulerInstances" />
@@ -868,29 +482,29 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="2a2674a5-29b0-4340-95f1-c0ac2c624a48" ref="Microsoft.RedDog.Contract\ServiceContract\eCommercePlatformContract@ServiceDefinition.build">
+    <implementation Id="46421408-46dc-4495-8bf7-df438ca31267" ref="Microsoft.RedDog.Contract\ServiceContract\eCommercePlatformContract@ServiceDefinition.build">
       <interfacereferences>
-        <interfaceReference Id="804c5eba-f56d-4ecb-8418-6888ad0ce153" ref="Microsoft.RedDog.Contract\Interface\Admin:Endpoint1@ServiceDefinition.build">
+        <interfaceReference Id="ee0e68ce-dd71-4eb6-a428-45b9301393c0" ref="Microsoft.RedDog.Contract\Interface\Admin:Endpoint1@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="55aed988-ca43-476f-964a-a65f9270687f" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:FTP@ServiceDefinition.build">
+        <interfaceReference Id="36b67c48-b31c-480f-810f-f3d6156a825f" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:FTP@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole:FTP" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="2a0edd99-429d-42fa-9873-86878758bb80" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput@ServiceDefinition.build">
+        <interfaceReference Id="b8c5c2b2-6758-424f-a505-eb62b98a91ac" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:SFTP@ServiceDefinition.build">
           <inPort>
-            <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" />
+            <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole:SFTP" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="fffbee94-79c8-43e0-9faa-f4acd4fb9f88" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Endpoint1@ServiceDefinition.build">
+        <interfaceReference Id="49dfe1a5-3f32-4103-8ac8-ace4d0936c8d" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Endpoint1@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="87ade72f-bc3e-4c1c-bd70-7e91f081c8f0" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Https@ServiceDefinition.build">
+        <interfaceReference Id="c8afd5b5-4546-4ace-bc11-ad39c8e24890" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Https@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Https" />
           </inPort>
