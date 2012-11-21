@@ -38,13 +38,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\AuthorizeNet.dll</HintPath>
+    <Reference Include="AuthorizeNet">
+      <HintPath>..\packages\AuthorizeNet.1.7.1\lib\AuthorizeNet.dll</HintPath>
     </Reference>
-    <Reference Include="AuthorizeNet.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\AuthorizeNet.Helpers.dll</HintPath>
+    <Reference Include="AuthorizeNet.Helpers">
+      <HintPath>..\packages\AuthorizeNet.1.7.1\lib\AuthorizeNet.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="AzureToolkit">
       <HintPath>..\packages\AzureToolkit.2.4.10\lib\net40\AzureToolkit.dll</HintPath>
@@ -205,8 +203,6 @@
     <Compile Include="WebRole.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\AuthorizeNet.dll" />
-    <Content Include="bin\AuthorizeNet.Helpers.dll" />
     <Content Include="Content\audio\bitches_please.mp3" />
     <Content Include="Content\audio\bitches_please.wav" />
     <Content Include="Content\audio\sp_player.swf" />
@@ -484,7 +480,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\hitchdepotusa-16052012.zip" />
     <Content Include="bin\Startup.cmd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
