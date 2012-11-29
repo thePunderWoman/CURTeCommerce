@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" generation="1" functional="0" release="0" Id="e08aa379-ade6-40c0-9350-54630aca745c" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" generation="1" functional="0" release="0" Id="292ffca6-d499-4b00-8e52-aaf60f226c60" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="eCommercePlatformGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -11,11 +11,6 @@
         <inPort name="FTPServerRole:FTP" protocol="tcp">
           <inToChannel>
             <lBChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/LB:FTPServerRole:FTP" />
-          </inToChannel>
-        </inPort>
-        <inPort name="FTPServerRole:SFTP" protocol="https">
-          <inToChannel>
-            <lBChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/LB:FTPServerRole:SFTP" />
           </inToChannel>
         </inPort>
         <inPort name="PlatformWebRole:Endpoint1" protocol="http">
@@ -40,14 +35,9 @@
             <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapAdminInstances" />
           </maps>
         </aCS>
-        <aCS name="Certificate|FTPServerRole:discounthitch" defaultValue="">
+        <aCS name="Certificate|PlatformWebRole:CurtSSL" defaultValue="">
           <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|FTPServerRole:discounthitch" />
-          </maps>
-        </aCS>
-        <aCS name="Certificate|PlatformWebRole:DiscountHitch" defaultValue="">
-          <maps>
-            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:DiscountHitch" />
+            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:CurtSSL" />
           </maps>
         </aCS>
         <aCS name="FTPServerRole:AccountKey" defaultValue="">
@@ -172,11 +162,6 @@
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/FTP" />
           </toPorts>
         </lBChannel>
-        <lBChannel name="LB:FTPServerRole:SFTP">
-          <toPorts>
-            <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/SFTP" />
-          </toPorts>
-        </lBChannel>
         <lBChannel name="LB:PlatformWebRole:Endpoint1">
           <toPorts>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/Endpoint1" />
@@ -204,14 +189,9 @@
             <sCSPolicyIDMoniker name="/eCommercePlatform/eCommercePlatformGroup/AdminInstances" />
           </setting>
         </map>
-        <map name="MapCertificate|FTPServerRole:discounthitch" kind="Identity">
+        <map name="MapCertificate|PlatformWebRole:CurtSSL" kind="Identity">
           <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/discounthitch" />
-          </certificate>
-        </map>
-        <map name="MapCertificate|PlatformWebRole:DiscountHitch" kind="Identity">
-          <certificate>
-            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
+            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/CurtSSL" />
           </certificate>
         </map>
         <map name="MapFTPServerRole:AccountKey" kind="Identity">
@@ -338,7 +318,7 @@
             </componentports>
             <settings>
               <aCS name="StorageConnectionString" defaultValue="" />
-              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;Admin&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;SFTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
+              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;Admin&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
             </settings>
             <resourcereferences>
               <resourceReference name="DiagnosticStore" defaultAmount="[4096,4096,4096]" defaultSticky="true" kind="Directory" />
@@ -354,11 +334,6 @@
           <role name="FTPServerRole" generation="1" functional="0" release="0" software="C:\Users\jjaniuk\Projects\eCommercePlatform\PlatformWebRole\eCommercePlatform\csx\Debug\roles\FTPServerRole" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaWorkerHost.exe " memIndex="768" hostingEnvironment="consoleroleadmin" hostingEnvironmentVersion="2">
             <componentports>
               <inPort name="FTP" protocol="tcp" portRanges="21" />
-              <inPort name="SFTP" protocol="https" portRanges="22">
-                <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/discounthitch" />
-                </certificate>
-              </inPort>
               <outPort name="TaskScheduler:Endpoint1" protocol="tcp">
                 <outToChannel>
                   <sFSwitchChannelMoniker name="/eCommercePlatform/eCommercePlatformGroup/SW:TaskScheduler:Endpoint1" />
@@ -373,22 +348,12 @@
               <aCS name="ProviderName" defaultValue="" />
               <aCS name="UseAsyncMethods" defaultValue="" />
               <aCS name="UseHttps" defaultValue="" />
-              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;FTPServerRole&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;SFTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
+              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;FTPServerRole&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
             </settings>
             <resourcereferences>
               <resourceReference name="DiagnosticStore" defaultAmount="[4096,4096,4096]" defaultSticky="true" kind="Directory" />
               <resourceReference name="EventStore" defaultAmount="[1000,1000,1000]" defaultSticky="false" kind="LogStore" />
             </resourcereferences>
-            <storedcertificates>
-              <storedCertificate name="Stored0discounthitch" certificateStore="CA" certificateLocation="System">
-                <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole/discounthitch" />
-                </certificate>
-              </storedCertificate>
-            </storedcertificates>
-            <certificates>
-              <certificate name="discounthitch" />
-            </certificates>
           </role>
           <sCSPolicy>
             <sCSPolicyIDMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRoleInstances" />
@@ -401,7 +366,7 @@
               <inPort name="Endpoint1" protocol="http" portRanges="80" />
               <inPort name="Https" protocol="https" portRanges="443">
                 <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
+                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/CurtSSL" />
                 </certificate>
               </inPort>
               <outPort name="TaskScheduler:Endpoint1" protocol="tcp">
@@ -419,21 +384,21 @@
               <aCS name="StorageConnectionString" defaultValue="" />
               <aCS name="UseAsyncMethods" defaultValue="" />
               <aCS name="UseHttps" defaultValue="" />
-              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;PlatformWebRole&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;SFTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
+              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;PlatformWebRole&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
             </settings>
             <resourcereferences>
               <resourceReference name="DiagnosticStore" defaultAmount="[4096,4096,4096]" defaultSticky="true" kind="Directory" />
               <resourceReference name="EventStore" defaultAmount="[1000,1000,1000]" defaultSticky="false" kind="LogStore" />
             </resourcereferences>
             <storedcertificates>
-              <storedCertificate name="Stored0DiscountHitch" certificateStore="CA" certificateLocation="System">
+              <storedCertificate name="Stored0CurtSSL" certificateStore="CA" certificateLocation="System">
                 <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
+                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/CurtSSL" />
                 </certificate>
               </storedCertificate>
             </storedcertificates>
             <certificates>
-              <certificate name="DiscountHitch" />
+              <certificate name="CurtSSL" />
             </certificates>
           </role>
           <sCSPolicy>
@@ -456,7 +421,7 @@
               <aCS name="AccountName" defaultValue="" />
               <aCS name="ProviderName" defaultValue="" />
               <aCS name="StorageConnectionString" defaultValue="" />
-              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;TaskScheduler&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;e name=&quot;SFTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
+              <aCS name="__ModelData" defaultValue="&lt;m role=&quot;TaskScheduler&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;Admin&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;FTPServerRole&quot;&gt;&lt;e name=&quot;FTP&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;PlatformWebRole&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;e name=&quot;Https&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;TaskScheduler&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
             </settings>
             <resourcereferences>
               <resourceReference name="DiagnosticStore" defaultAmount="[4096,4096,4096]" defaultSticky="true" kind="Directory" />
@@ -482,29 +447,24 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="46421408-46dc-4495-8bf7-df438ca31267" ref="Microsoft.RedDog.Contract\ServiceContract\eCommercePlatformContract@ServiceDefinition.build">
+    <implementation Id="233e2e2c-498d-4cf1-a759-04e68eec0845" ref="Microsoft.RedDog.Contract\ServiceContract\eCommercePlatformContract@ServiceDefinition.build">
       <interfacereferences>
-        <interfaceReference Id="ee0e68ce-dd71-4eb6-a428-45b9301393c0" ref="Microsoft.RedDog.Contract\Interface\Admin:Endpoint1@ServiceDefinition.build">
+        <interfaceReference Id="020a12ea-88c2-401f-a051-59ebf8161235" ref="Microsoft.RedDog.Contract\Interface\Admin:Endpoint1@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="36b67c48-b31c-480f-810f-f3d6156a825f" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:FTP@ServiceDefinition.build">
+        <interfaceReference Id="8082dbb7-cef2-4b61-9eea-85db5e7939c8" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:FTP@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole:FTP" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="b8c5c2b2-6758-424f-a505-eb62b98a91ac" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:SFTP@ServiceDefinition.build">
-          <inPort>
-            <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole:SFTP" />
-          </inPort>
-        </interfaceReference>
-        <interfaceReference Id="49dfe1a5-3f32-4103-8ac8-ace4d0936c8d" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Endpoint1@ServiceDefinition.build">
+        <interfaceReference Id="83c944b0-b7f2-4440-997a-e739f975757a" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Endpoint1@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="c8afd5b5-4546-4ace-bc11-ad39c8e24890" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Https@ServiceDefinition.build">
+        <interfaceReference Id="efa56d47-bfa2-4424-a763-f22ecb97ccaf" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Https@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Https" />
           </inPort>
