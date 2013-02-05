@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" generation="1" functional="0" release="0" Id="c604969b-d9bc-4bc9-a6a8-717543756ece" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="eCommercePlatform" generation="1" functional="0" release="0" Id="ca56d04c-a24f-438a-97a0-7c150b3f20b7" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="eCommercePlatformGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -48,6 +48,11 @@
         <aCS name="Certificate|PlatformWebRole:DiscountHitch" defaultValue="">
           <maps>
             <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:DiscountHitch" />
+          </maps>
+        </aCS>
+        <aCS name="Certificate|PlatformWebRole:DiscountHitches" defaultValue="">
+          <maps>
+            <mapMoniker name="/eCommercePlatform/eCommercePlatformGroup/MapCertificate|PlatformWebRole:DiscountHitches" />
           </maps>
         </aCS>
         <aCS name="FTPServerRole:AccountKey" defaultValue="">
@@ -212,6 +217,11 @@
         <map name="MapCertificate|PlatformWebRole:DiscountHitch" kind="Identity">
           <certificate>
             <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
+          </certificate>
+        </map>
+        <map name="MapCertificate|PlatformWebRole:DiscountHitches" kind="Identity">
+          <certificate>
+            <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitches" />
           </certificate>
         </map>
         <map name="MapFTPServerRole:AccountKey" kind="Identity">
@@ -401,7 +411,7 @@
               <inPort name="Endpoint1" protocol="http" portRanges="80" />
               <inPort name="Https" protocol="https" portRanges="443">
                 <certificate>
-                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
+                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitches" />
                 </certificate>
               </inPort>
               <outPort name="TaskScheduler:Endpoint1" protocol="tcp">
@@ -431,9 +441,15 @@
                   <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitch" />
                 </certificate>
               </storedCertificate>
+              <storedCertificate name="Stored1DiscountHitches" certificateStore="CA" certificateLocation="System">
+                <certificate>
+                  <certificateMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole/DiscountHitches" />
+                </certificate>
+              </storedCertificate>
             </storedcertificates>
             <certificates>
               <certificate name="DiscountHitch" />
+              <certificate name="DiscountHitches" />
             </certificates>
           </role>
           <sCSPolicy>
@@ -482,29 +498,29 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="12143616-861a-48a0-bbef-b358cbd4bcac" ref="Microsoft.RedDog.Contract\ServiceContract\eCommercePlatformContract@ServiceDefinition.build">
+    <implementation Id="3ed2ae5e-a585-4660-b178-3efd8014f8d2" ref="Microsoft.RedDog.Contract\ServiceContract\eCommercePlatformContract@ServiceDefinition.build">
       <interfacereferences>
-        <interfaceReference Id="d91d152f-4215-4f3e-9e14-662473c515fa" ref="Microsoft.RedDog.Contract\Interface\Admin:Endpoint1@ServiceDefinition.build">
+        <interfaceReference Id="430fd7c4-c5f6-44b6-8343-cb707bd4fa95" ref="Microsoft.RedDog.Contract\Interface\Admin:Endpoint1@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/Admin:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="0afadb61-c170-417f-9707-4798911213e9" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:FTP@ServiceDefinition.build">
+        <interfaceReference Id="0b17da6a-f043-4e7f-8efa-05ffa84bf547" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:FTP@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole:FTP" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="8c1843f4-7bea-443a-a23e-820de7ebfb34" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:SFTP@ServiceDefinition.build">
+        <interfaceReference Id="ada07f2e-ad91-4065-9de7-dbc83990d839" ref="Microsoft.RedDog.Contract\Interface\FTPServerRole:SFTP@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/FTPServerRole:SFTP" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="112a69a7-6729-4430-b011-9de843129134" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Endpoint1@ServiceDefinition.build">
+        <interfaceReference Id="b71924e3-166e-4d4e-839e-2e051c378c0c" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Endpoint1@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="7c3b430f-cf52-48de-9efd-bf2615082872" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Https@ServiceDefinition.build">
+        <interfaceReference Id="4954b6ea-95f4-4c49-8a61-09450e2e8ecd" ref="Microsoft.RedDog.Contract\Interface\PlatformWebRole:Https@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/eCommercePlatform/eCommercePlatformGroup/PlatformWebRole:Https" />
           </inPort>

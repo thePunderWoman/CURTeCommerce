@@ -5,6 +5,7 @@
   <Operation type="Path" path="diagnostics\x64" />
   <PermissionLevels>
     <StoredCert name="Stored0DiscountHitch" permissionLevel="limitedOrElevated" />
+    <StoredCert name="Stored1DiscountHitches" permissionLevel="limitedOrElevated" />
   </PermissionLevels>
   <AdditionalRoleIdentities>
     <Identity username="NetworkService" domain="NT AUTHORITY" />

@@ -28,10 +28,11 @@
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="http" port="80" localPort="80" />
-      <InputEndpoint name="Https" protocol="https" port="443" certificate="DiscountHitch" localPort="443" />
+      <InputEndpoint name="Https" protocol="https" port="443" certificate="DiscountHitches" localPort="443" />
     </Endpoints>
     <Certificates>
       <Certificate name="DiscountHitch" storeLocation="LocalMachine" storeName="CA" />
+      <Certificate name="DiscountHitches" storeLocation="LocalMachine" storeName="CA" />
     </Certificates>
   </WebRole>
   <WorkerRole name="FTPServerRole" vmsize="ExtraSmall">

@@ -23,6 +23,7 @@
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="DiscountHitch" thumbprint="3CA815FF6A75799C8A840187074E11551CDC750E" thumbprintAlgorithm="sha1" />
+      <Certificate name="DiscountHitches" thumbprint="DBDBD5043AA906C4D8135C9D7B9C632E18405761" thumbprintAlgorithm="sha1" />
     </Certificates>
   </Role>
   <Role name="FTPServerRole">
